@@ -408,23 +408,24 @@
       height: 160px;
       position: relative;
     }
-    .work-before {
-      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
+    .work-before,
     .work-after {
-      background: linear-gradient(135deg, #0d1b2e, #1a3a5c);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .work-before::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.18);
     }
     .work-ba-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
       font-size: 9px;
       font-family: 'Oswald', sans-serif;
       letter-spacing: 0.3em;
@@ -433,10 +434,6 @@
     }
     .work-before .work-ba-label { background: #c0392b; color: #fff; }
     .work-after  .work-ba-label { background: #27ae60; color: #fff; }
-    .work-ba-img {
-      font-size: 32px;
-      opacity: 0.5;
-    }
     .work-ba-divider {
       position: absolute;
       top: 0; bottom: 0;
@@ -913,15 +910,14 @@
     <p class="section-sub fade-in">実際に対応した修理の一部をご紹介します。</p>
 
     <div class="works-grid">
+      <!-- Card 1: ドア板金 -->
       <div class="work-card fade-in">
         <div class="work-ba">
-          <div class="work-before">
+          <div class="work-before" style="background-image:url('https://images.pexels.com/photos/35149611/pexels-photo-35149611.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">BEFORE</span>
-            <div class="work-ba-img">🚗</div>
           </div>
-          <div class="work-after">
+          <div class="work-after" style="background-image:url('https://images.pexels.com/photos/6870296/pexels-photo-6870296.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">AFTER</span>
-            <div class="work-ba-img">✨</div>
           </div>
           <div class="work-ba-divider"></div>
         </div>
@@ -933,15 +929,14 @@
         </div>
       </div>
 
+      <!-- Card 2: バンパー -->
       <div class="work-card fade-in">
         <div class="work-ba">
-          <div class="work-before">
+          <div class="work-before" style="background-image:url('https://images.pexels.com/photos/33749906/pexels-photo-33749906.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">BEFORE</span>
-            <div class="work-ba-img">🚗</div>
           </div>
-          <div class="work-after">
+          <div class="work-after" style="background-image:url('https://images.pexels.com/photos/5233262/pexels-photo-5233262.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">AFTER</span>
-            <div class="work-ba-img">✨</div>
           </div>
           <div class="work-ba-divider"></div>
         </div>
@@ -953,15 +948,14 @@
         </div>
       </div>
 
+      <!-- Card 3: サイドパネル -->
       <div class="work-card fade-in">
         <div class="work-ba">
-          <div class="work-before">
+          <div class="work-before" style="background-image:url('https://images.pexels.com/photos/24960483/pexels-photo-24960483.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">BEFORE</span>
-            <div class="work-ba-img">🚙</div>
           </div>
-          <div class="work-after">
+          <div class="work-after" style="background-image:url('https://images.pexels.com/photos/8985462/pexels-photo-8985462.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">AFTER</span>
-            <div class="work-ba-img">✨</div>
           </div>
           <div class="work-ba-divider"></div>
         </div>
@@ -973,15 +967,14 @@
         </div>
       </div>
 
+      <!-- Card 4: ガリキズ -->
       <div class="work-card fade-in">
         <div class="work-ba">
-          <div class="work-before">
+          <div class="work-before" style="background-image:url('https://images.pexels.com/photos/10102313/pexels-photo-10102313.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">BEFORE</span>
-            <div class="work-ba-img">🚗</div>
           </div>
-          <div class="work-after">
+          <div class="work-after" style="background-image:url('https://images.pexels.com/photos/29809117/pexels-photo-29809117.jpeg?auto=compress&cs=tinysrgb&w=480&h=320&fit=crop')">
             <span class="work-ba-label">AFTER</span>
-            <div class="work-ba-img">✨</div>
           </div>
           <div class="work-ba-divider"></div>
         </div>
