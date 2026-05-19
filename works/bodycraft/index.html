@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボディクラフト｜福岡の自動車板金塗装専門店</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #E8820C;
+      --dark: #111111;
+      --gray: #1e1e1e;
+      --light: #f5f5f5;
+      --text: #333;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      color: var(--text);
+      background: #fff;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(17,17,17,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 64px;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .logo span { color: var(--orange); }
+
+    nav { display: flex; gap: 28px; }
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #fff; }
+
+    .header-tel {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      background: var(--orange);
+      padding: 8px 18px;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+    .header-tel:hover { opacity: 0.85; }
+
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh;
+      min-height: 600px;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(232,130,12,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 30% 60%, rgba(232,130,12,0.06) 0%, transparent 60%);
+    }
+
+    /* 装飾ライン */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      color: var(--orange);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      border: 1px solid rgba(232,130,12,0.4);
+      padding: 6px 20px;
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: clamp(14px, 2vw, 18px);
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 4px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #d0720a; transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 4px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
+
+    /* ===== STATS ===== */
+    .stats {
+      background: var(--dark);
+      padding: 48px 32px;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .stat-num span { font-size: 24px; }
+    .stat-label {
+      color: #aaa;
+      font-size: 13px;
+      margin-top: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== SECTION共通 ===== */
+    section { padding: 96px 20px; }
+
+    .section-label {
+      text-align: center;
+      color: var(--orange);
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 900;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #777;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 64px;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ===== BEFORE / AFTER ===== */
+    #gallery { background: var(--light); }
+
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .ba-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    .ba-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+
+    .ba-side {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      position: relative;
+    }
+
+    .ba-before {
+      background: linear-gradient(135deg, #3a3a3a 0%, #555 100%);
+      color: #ccc;
+    }
+    .ba-after {
+      background: linear-gradient(135deg, #1a2a3a 0%, #2a4a6a 100%);
+      color: #7eb8e0;
+    }
+
+    /* ビフォーアフターのダミービジュアル */
+    .ba-before .car-icon, .ba-after .car-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ba-before .car-shape {
+      width: 80px;
+      height: 36px;
+      background: #888;
+      border-radius: 8px 8px 4px 4px;
+      position: relative;
+    }
+    .ba-before .car-shape::before {
+      content: '';
+      position: absolute;
+      top: -16px; left: 12px; right: 12px;
+      height: 20px;
+      background: #666;
+      border-radius: 6px 6px 0 0;
+    }
+    .ba-before .damage {
+      position: absolute;
+      top: 8px; left: 20px;
+      width: 28px;
+      height: 10px;
+      background: #555;
+      border-radius: 2px;
+      box-shadow: inset 0 0 0 2px #444;
+      transform: rotate(-8deg);
+    }
+
+    .ba-after .car-shape {
+      width: 80px;
+      height: 36px;
+      background: #3a8fc4;
+      border-radius: 8px 8px 4px 4px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(58,143,196,0.4);
+    }
+    .ba-after .car-shape::before {
+      content: '';
+      position: absolute;
+      top: -16px; left: 12px; right: 12px;
+      height: 20px;
+      background: #2a6fa0;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .ba-label {
+      position: absolute;
+      top: 8px; left: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .ba-before .ba-label { background: #555; color: #ccc; }
+    .ba-after .ba-label { background: var(--orange); color: #fff; }
+
+    .ba-divider {
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 2px;
+      background: #fff;
+      z-index: 2;
+    }
+    .ba-divider::after {
+      content: '→';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      color: var(--dark);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      line-height: 28px;
+      text-align: center;
+    }
+
+    .ba-info {
+      padding: 20px 24px;
+    }
+    .ba-type {
+      font-size: 12px;
+      color: var(--orange);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .ba-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .ba-desc {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* ===== SERVICES ===== */
+    #services { background: #fff; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 36px 28px;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 8px 32px rgba(232,130,12,0.1);
+      transform: translateY(-2px);
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    .service-name {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .service-desc {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.7;
+    }
+
+    /* ===== WHY ===== */
+    #why { background: var(--dark); }
+    #why .section-title { color: #fff; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 32px 24px;
+    }
+
+    .why-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(232,130,12,0.3);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .why-title {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .why-desc {
+      color: #888;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ===== VOICE ===== */
+    #voice { background: var(--light); }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .voice-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .voice-card::before {
+      content: '"';
+      position: absolute;
+      top: -8px; left: 20px;
+      font-size: 64px;
+      color: var(--orange);
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .stars {
+      color: var(--orange);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .voice-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .voice-author {
+      font-size: 13px;
+      color: #999;
+      font-weight: 700;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--dark); }
+    #contact .section-title { color: #fff; }
+    #contact .section-sub { color: #888; }
+
+    .contact-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 48px;
+    }
+
+    .contact-tel {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .tel-label {
+      color: #888;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .tel-num {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s;
+    }
+    .tel-num:hover { color: var(--orange); }
+    .tel-hours {
+      color: #666;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 32px 0;
+      color: #444;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 14px 16px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--orange);
+    }
+    .form-group select option { background: #222; }
+    .form-group textarea { height: 120px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      padding: 18px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { background: #d0720a; transform: translateY(-1px); }
+
+    /* ===== MAP ===== */
+    #map-section { padding: 0; }
+    .map-placeholder {
+      height: 360px;
+      background: linear-gradient(135deg, #1a2030 0%, #243040 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .map-pin {
+      font-size: 48px;
+    }
+    .map-address {
+      color: #aaa;
+      font-size: 15px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .map-address strong {
+      display: block;
+      color: #fff;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      padding: 40px 20px;
+      text-align: center;
+      color: #555;
+      font-size: 13px;
+    }
+    footer .footer-logo {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    footer .footer-logo span { color: var(--orange); }
+
+    /* ===== FLOATING TEL BUTTON (SP) ===== */
+    .float-tel {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 48px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      box-shadow: 0 4px 24px rgba(232,130,12,0.5);
+      animation: pulse 2s infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 24px rgba(232,130,12,0.5); }
+      50% { box-shadow: 0 4px 40px rgba(232,130,12,0.8); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      header { padding: 0 20px; }
+
+      .stats { gap: 40px; }
+
+      section { padding: 64px 20px; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .contact-box { padding: 32px 20px; }
+
+      .float-tel { display: block; }
+
+      /* フッターの余白（フロートボタン分） */
+      footer { padding-bottom: 90px; }
+    }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="logo">Body<span>Craft</span></div>
+  <nav>
+    <a href="#gallery">施工事例</a>
+    <a href="#services">サービス</a>
+    <a href="#why">選ばれる理由</a>
+    <a href="#contact">お問合わせ</a>
+  </nav>
+  <a href="tel:0928620822" class="header-tel">📞 今すぐ電話</a>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Fukuoka Auto Body & Paint Specialist</div>
+    <h1>愛車を、<em>もとの姿</em>へ。<br>それ以上へ。</h1>
+    <p>福岡の自動車板金塗装専門店。<br>傷・へこみ・事故修理をプロの技術で丁寧に仕上げます。</p>
+    <div class="hero-buttons">
+      <a href="#gallery" class="btn-primary">施工事例を見る</a>
+      <a href="#contact" class="btn-outline">無料見積もり</a>
+    </div>
+  </div>
+</section>
+
+<!-- 実績 -->
+<div class="stats">
+  <div class="stat fade-in">
+    <div class="stat-num">20<span>年</span></div>
+    <div class="stat-label">創業からの実績</div>
+  </div>
+  <div class="stat fade-in">
+    <div class="stat-num">3,000<span>+</span></div>
+    <div class="stat-label">修理実績台数</div>
+  </div>
+  <div class="stat fade-in">
+    <div class="stat-num">9<span>時〜</span>22<span>時</span></div>
+    <div class="stat-label">受付時間（日祝除く）</div>
+  </div>
+</div>
+
+<!-- 施工事例 -->
+<section id="gallery">
+  <div class="container">
+    <p class="section-label">Works</p>
+    <h2 class="section-title">施工事例</h2>
+    <p class="section-sub">板金・塗装・事故修理まで。職人の技術で、ここまで変わります。</p>
+
+    <div class="ba-grid">
+      <!-- 事例1 -->
+      <div class="ba-card fade-in">
+        <div class="ba-images">
+          <div class="ba-side ba-before">
+            <div class="car-icon">
+              <div class="car-shape"><div class="damage"></div></div>
+              <span style="font-size:11px;color:#888;margin-top:6px">右ドア凹み</span>
+            </div>
+            <span class="ba-label">BEFORE</span>
+          </div>
+          <div class="ba-side ba-after">
+            <div class="car-icon">
+              <div class="car-shape"></div>
+              <span style="font-size:11px;color:#7eb8e0;margin-top:6px">完全修復</span>
+            </div>
+            <span class="ba-label">AFTER</span>
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-type">板金塗装</div>
+          <div class="ba--title ba-title">右ドア 飛び石キズ・凹み修理</div>
+          <div class="ba-desc">駐車場でのドア当て傷。色合わせまで完璧に仕上げました。</div>
+        </div>
+      </div>
+
+      <!-- 事例2 -->
+      <div class="ba-card fade-in">
+        <div class="ba-images">
+          <div class="ba-side ba-before" style="background: linear-gradient(135deg, #2a2020 0%, #3a2020 100%);">
+            <div class="car-icon">
+              <div class="car-shape" style="background:#8a6060;"></div>
+              <span style="font-size:11px;color:#a88;margin-top:6px">フロント損傷</span>
+            </div>
+            <span class="ba-label">BEFORE</span>
+          </div>
+          <div class="ba-side ba-after" style="background: linear-gradient(135deg, #1a2a1a 0%, #2a4a2a 100%);">
+            <div class="car-icon">
+              <div class="car-shape" style="background:#4a9a4a;box-shadow:0 0 20px rgba(74,154,74,0.4);"></div>
+              <span style="font-size:11px;color:#7eb87e;margin-top:6px">新品同様</span>
+            </div>
+            <span class="ba-label">AFTER</span>
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-type">事故修理</div>
+          <div class="ba-title">フロントバンパー 追突事故修理</div>
+          <div class="ba-desc">軽追突によるバンパー・フード変形。保険対応で丁寧に修復。</div>
+        </div>
+      </div>
+
+      <!-- 事例3 -->
+      <div class="ba-card fade-in">
+        <div class="ba-images">
+          <div class="ba-side ba-before" style="background: linear-gradient(135deg, #252520 0%, #353530 100%);">
+            <div class="car-icon">
+              <div class="car-shape" style="background:#909080;"></div>
+              <span style="font-size:11px;color:#aaa;margin-top:6px">全体的に劣化</span>
+            </div>
+            <span class="ba-label">BEFORE</span>
+          </div>
+          <div class="ba-side ba-after" style="background: linear-gradient(135deg, #201a2a 0%, #302a4a 100%);">
+            <div class="car-icon">
+              <div class="car-shape" style="background:#8a6aba;box-shadow:0 0 20px rgba(138,106,186,0.4);"></div>
+              <span style="font-size:11px;color:#b090e0;margin-top:6px">全塗装完了</span>
+            </div>
+            <span class="ba-label">AFTER</span>
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-type">全塗装</div>
+          <div class="ba-title">ボディ全塗装 カラーチェンジ</div>
+          <div class="ba-desc">経年劣化した塗装を全面リペア。カラーチェンジにも対応。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- サービス -->
+<section id="services">
+  <div class="container">
+    <p class="section-label">Services</p>
+    <h2 class="section-title">対応サービス</h2>
+    <p class="section-sub">小さな傷から事故修理まで、お気軽にご相談ください。</p>
+
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">🔧</div>
+        <div class="service-name">板金修理</div>
+        <div class="service-desc">凹み・変形を元の形に復元。小さな傷から大きな損傷まで対応します。</div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">塗装・色合わせ</div>
+        <div class="service-desc">コンピュータ調色で純正色を再現。部分塗装から全塗装まで。</div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🚗</div>
+        <div class="service-name">事故修理</div>
+        <div class="service-desc">保険会社との交渉サポートも対応。安心してお任せください。</div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">✨</div>
+        <div class="service-name">磨き・コーティング</div>
+        <div class="service-desc">修理後の仕上げ磨きで新車のような輝きを取り戻します。</div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🪟</div>
+        <div class="service-name">ガラス交換・修理</div>
+        <div class="service-desc">飛び石によるフロントガラスのヒビ・割れの修理・交換。</div>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📋</div>
+        <div class="service-name">無料見積もり</div>
+        <div class="service-desc">写真をお送りいただくだけで概算お見積もりをご提示します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section id="why">
+  <div class="container">
+    <p class="section-label" style="color:#666;letter-spacing:.3em">Why Choose Us</p>
+    <h2 class="section-title">選ばれる理由</h2>
+
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-num">01</div>
+        <div class="why-title">職人による手仕上げ</div>
+        <div class="why-desc">機械任せにしない、職人の目と手による丁寧な仕上げ。完成度へのこだわりが違います。</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-num">02</div>
+        <div class="why-title">明確なお見積もり</div>
+        <div class="why-desc">追加費用なし。作業前に明確なお見積もりをご提示し、ご納得いただいてから着工します。</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-num">03</div>
+        <div class="why-title">保険対応も安心</div>
+        <div class="why-desc">自動車保険を使った修理も対応。保険会社とのやり取りをサポートします。</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-num">04</div>
+        <div class="why-title">夜10時まで受付</div>
+        <div class="why-desc">お仕事帰りでも大丈夫。午前9時〜午後10時まで電話・メール受付しています。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 口コミ -->
+<section id="voice">
+  <div class="container">
+    <p class="section-label">Reviews</p>
+    <h2 class="section-title">お客様の声</h2>
+    <p class="section-sub">実際にご利用いただいたお客様からのご感想です。</p>
+
+    <div class="voice-grid">
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">駐車場でドアパンチされてへこんでいたのを修理してもらいました。どこを直したか全くわからないくらい綺麗になって感動しました。</p>
+        <div class="voice-author">福岡市南区 / 30代女性</div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">保険を使って修理をお願いしました。保険会社とのやり取りも全部サポートしていただいて、本当に助かりました。</p>
+        <div class="voice-author">春日市 / 40代男性</div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">電話での対応から仕上がりまで全て丁寧でした。価格も他の業者より安く、仕上がりは一番良かったです。</p>
+        <div class="voice-author">大野城市 / 50代男性</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- お問合わせ -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label" style="color:#555">Contact</p>
+    <h2 class="section-title">お問合わせ・無料見積もり</h2>
+    <p class="section-sub">まずはお気軽にご連絡ください。写真を送るだけで概算見積もりをお伝えします。</p>
+
+    <div class="contact-box">
+      <!-- 電話 -->
+      <div class="contact-tel">
+        <div class="tel-label">Phone</div>
+        <a href="tel:0928620822" class="tel-num">092-862-0822</a>
+        <div class="tel-hours">受付時間：午前9時〜午後10時（日曜・祝日除く）</div>
+      </div>
+
+      <div class="divider">または メールで送る</div>
+
+      <!-- フォーム -->
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>お名前</label>
+            <input type="text" placeholder="山田 太郎">
+          </div>
+          <div class="form-group">
+            <label>電話番号</label>
+            <input type="tel" placeholder="090-XXXX-XXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ご用件</label>
+          <select>
+            <option value="">選択してください</option>
+            <option>板金修理の見積もり</option>
+            <option>塗装の見積もり</option>
+            <option>事故修理の相談</option>
+            <option>全塗装の見積もり</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>メッセージ（任意）</label>
+          <textarea placeholder="車種・症状・気になる点などをお書きください"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">送信する →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- マップ -->
+<div id="map-section">
+  <div class="map-placeholder">
+    <div class="map-pin">📍</div>
+    <div class="map-address">
+      <strong>ボディクラフト</strong>
+      福岡市中央区 ／ 福岡市を中心に活動中<br>
+      <small style="color:#666;font-size:12px;margin-top:8px;display:block">※ Google マップ 埋め込み予定エリア</small>
+    </div>
+  </div>
+</div>
+
+<!-- フッター -->
+<footer>
+  <div class="footer-logo">Body<span>Craft</span></div>
+  <p style="margin-bottom:8px">福岡の自動車板金塗装専門店</p>
+  <p>TEL: 092-862-0822 ／ 受付 9:00〜22:00（日祝除く）</p>
+  <p style="margin-top:24px;font-size:11px;color:#333">© 2024 BodyCraft All Rights Reserved.</p>
+</footer>
+
+<!-- スマホ用フロートボタン -->
+<a href="tel:0928620822" class="float-tel">📞 今すぐ電話する</a>
+
+<script>
+  // スクロールアニメーション
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // フォーム送信（デモ）
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('送信ありがとうございます！（※これはデモサイトです）');
+  }
+</script>
+
+</body>
+</html>

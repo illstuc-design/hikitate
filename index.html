@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HIKITATE | ウェブ制作</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #2d4580;
+      --accent-light: #6a84c8;
+      --dark: #0f0f0f;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15,15,15,0.96);
+      backdrop-filter: blur(8px);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-text {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 100;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: 0.18em;
+      line-height: 1;
+    }
+    .nav-contact {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .nav-contact:hover { opacity: 0.85; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 50% at 50% 60%, rgba(45,69,128,0.15) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      color: var(--accent-light);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      border: 1px solid rgba(106,132,200,0.4);
+      padding: 5px 18px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent-light); }
+    .hero-desc {
+      color: #888;
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 48px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 18px 32px;
+    }
+    .hero-badge-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-badge-text {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 100;
+      font-size: 28px;
+      color: #c8d4ee;
+      letter-spacing: 0.18em;
+      line-height: 1;
+    }
+    .hero-badge-sub {
+      color: #555;
+      font-size: 13px;
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== セクション共通 ===== */
+    section { padding: 96px 20px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .sec-label {
+      text-align: center;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sec-title {
+      text-align: center;
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .sec-sub {
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 56px;
+    }
+
+    /* ===== WORKS ===== */
+    #works { background: #f6f6f6; }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .work-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: all 0.25s;
+    }
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .work-thumb {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* サムネイル - 板金塗装 */
+    .thumb-body {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+    .thumb-body .mini-site {
+      width: 140px;
+      background: #111;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    }
+    .mini-hero {
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+      position: relative;
+    }
+    .mini-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #2d4580, transparent);
+    }
+    .mini-h { color: #fff; font-size: 8px; font-weight: 900; line-height: 1.3; }
+    .mini-btn { display: inline-block; background: #2d4580; color: #fff; font-size: 6px; padding: 2px 6px; border-radius: 2px; margin-top: 4px; }
+    .mini-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #222; }
+    .mini-card { height: 14px; background: #1a2a3a; }
+
+    /* サムネイル - 外壁塗装 */
+    .thumb-gaiheki {
+      background: linear-gradient(135deg, #1a2510 0%, #2a3520 100%);
+    }
+    .thumb-gaiheki .mini-site {
+      width: 140px;
+      background: #1a2510;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .mini-hero-g {
+      background: linear-gradient(135deg, #1a2510 0%, #2a4020 100%);
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #2a3a1a;
+      position: relative;
+    }
+    .mini-hero-g::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #5a9a30, transparent);
+    }
+    .mini-h-g { color: #a0d060; font-size: 8px; font-weight: 900; line-height: 1.3; }
+    .mini-btn-g { display: inline-block; background: #5a9a30; color: #fff; font-size: 6px; padding: 2px 6px; border-radius: 2px; margin-top: 4px; }
+    .mini-body-g { padding: 6px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: #131d09; }
+    .mini-box-g { height: 20px; background: #2a3a1a; border-radius: 2px; }
+
+    /* サムネイル - 整骨院 */
+    .thumb-seikotsu {
+      background: linear-gradient(135deg, #0a1520 0%, #0a2030 100%);
+    }
+    .thumb-seikotsu .mini-site {
+      width: 140px;
+      background: #0a1520;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .mini-hero-s {
+      background: linear-gradient(135deg, #0a1020 0%, #102040 100%);
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #102030;
+    }
+    .mini-h-s { color: #60a8e0; font-size: 8px; font-weight: 900; line-height: 1.3; }
+    .mini-btn-s { display: inline-block; background: #2060b0; color: #fff; font-size: 6px; padding: 2px 6px; border-radius: 12px; margin-top: 4px; }
+    .mini-body-s { padding: 6px; display: flex; flex-direction: column; gap: 2px; background: #070d18; }
+    .mini-row-s { height: 8px; background: #102030; border-radius: 1px; }
+
+    .work-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+    .work-badge.coming {
+      background: #555;
+    }
+
+    .work-info { padding: 20px 24px; }
+    .work-industry {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .work-name {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .work-desc {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .work-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 11px;
+      background: #f0f0f0;
+      color: #555;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .work-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: opacity 0.2s;
+    }
+    .work-link:hover { opacity: 0.7; }
+
+    /* ===== ABOUT ===== */
+    #about { background: #fff; }
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-mark {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #0d1830 0%, #1a2a50 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-name {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 100;
+      font-size: 36px;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      margin-bottom: 4px;
+    }
+    .about-role {
+      color: var(--accent-light);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .about-text {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .about-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill {
+      background: #f0f0f0;
+      color: #444;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 4px;
+    }
+
+    /* ===== FLOW ===== */
+    #flow { background: #f6f6f6; }
+    .flow-list {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .flow-item {
+      display: flex;
+      gap: 24px;
+      position: relative;
+      padding-bottom: 32px;
+    }
+    .flow-item:last-child { padding-bottom: 0; }
+    .flow-item::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 48px;
+      bottom: 0;
+      width: 2px;
+      background: #e0e0e0;
+    }
+    .flow-item:last-child::before { display: none; }
+    .flow-circle {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .flow-body { padding-top: 8px; }
+    .flow-step-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .flow-step-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+    .flow-step-note {
+      display: inline-block;
+      margin-top: 6px;
+      background: #e8edf8;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 3px;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--dark); }
+    #contact .sec-title { color: #fff; }
+    #contact .sec-sub { color: #888; }
+    .contact-box {
+      max-width: 560px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 13px 16px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent-light); }
+    .form-group textarea { height: 110px; resize: vertical; }
+    .form-group select option { background: #222; }
+    .btn-send {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    .btn-send:hover { background: #3a5aaa; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      padding: 32px 20px;
+      text-align: center;
+      color: #444;
+      font-size: 13px;
+    }
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .footer-logo-text {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 100;
+      font-size: 20px;
+      color: #888;
+      letter-spacing: 0.18em;
+    }
+    footer a { color: #555; text-decoration: none; }
+    footer a:hover { color: #888; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 680px) {
+      .about-wrap { grid-template-columns: 1fr; }
+      .about-mark { max-width: 120px; }
+      header { padding: 0 16px; }
+      .contact-box { padding: 28px 16px; }
+    }
+
+    /* ===== ANIMATION ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <svg width="28" height="22" viewBox="0 0 70 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0"  y1="44" x2="70" y2="44" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="35" cy="44" r="3.8" fill="#6a84c8"/>
+      <line x1="35" y1="44" x2="35" y2="8"  stroke="#6a84c8" stroke-width="2"   stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="18" y2="12" stroke="#6a84c8" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="52" y2="12" stroke="#6a84c8" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="6"  y2="23" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="64" y2="23" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="0"  y2="37" stroke="#6a84c8" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="70" y2="37" stroke="#6a84c8" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text">HIKITATE</span>
+  </a>
+  <a href="#contact" class="nav-contact">お問合わせ</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Web Design Portfolio</div>
+    <h1>地域のお店を、<br><em>ちゃんと見つけてもらえる</em><br>ホームページに。</h1>
+    <p class="hero-desc">
+      スマートフォン対応・集客改善・わかりやすい価格。<br>
+      地元の中小企業・個人店を専門に、<br>使われるホームページを作ります。
+    </p>
+    <div class="hero-badge">
+      <div>
+        <div class="hero-badge-logo">
+          <svg width="32" height="26" viewBox="0 0 70 52" fill="none">
+            <line x1="0"  y1="44" x2="70" y2="44" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="35" cy="44" r="3.8" fill="#6a84c8"/>
+            <line x1="35" y1="44" x2="35" y2="8"  stroke="#6a84c8" stroke-width="2"   stroke-linecap="round"/>
+            <line x1="35" y1="44" x2="18" y2="12" stroke="#6a84c8" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="35" y1="44" x2="52" y2="12" stroke="#6a84c8" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="35" y1="44" x2="6"  y2="23" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="35" y1="44" x2="64" y2="23" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="35" y1="44" x2="0"  y2="37" stroke="#6a84c8" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="35" y1="44" x2="70" y2="37" stroke="#6a84c8" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span class="hero-badge-text">HIKITATE</span>
+        </div>
+        <div class="hero-badge-sub">Web Design / 福岡</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="container">
+    <p class="sec-label">Works</p>
+    <h2 class="sec-title">制作事例・デモサイト</h2>
+    <p class="sec-sub">「こんなサイトが作れます」という制作デモです。<br>業種に合わせたデザインをゼロからご提案します。</p>
+
+    <div class="works-grid">
+      <!-- 板金塗装 -->
+      <div class="work-card fade-in">
+        <div class="work-thumb thumb-body">
+          <div class="mini-site">
+            <div class="mini-hero">
+              <div class="mini-h">愛車を、もとの姿へ。</div>
+              <div class="mini-btn">施工事例を見る</div>
+            </div>
+            <div class="mini-cards">
+              <div class="mini-card"></div>
+              <div class="mini-card" style="background:#2a3a4a"></div>
+              <div class="mini-card" style="background:#1a3a2a"></div>
+            </div>
+          </div>
+          <div class="work-badge">Demo</div>
+        </div>
+        <div class="work-info">
+          <div class="work-industry">自動車板金塗装</div>
+          <div class="work-name">ボディクラフト（デモ）</div>
+          <div class="work-desc">施工事例のビフォーアフターを見やすく掲載。スマホからワンタップで電話できるデザイン。</div>
+          <div class="work-tags">
+            <span class="tag">スマホ対応</span>
+            <span class="tag">施工事例</span>
+            <span class="tag">問合せフォーム</span>
+          </div>
+          <a href="works/bodycraft/" class="work-link" target="_blank">デモサイトを見る →</a>
+        </div>
+      </div>
+
+      <!-- 外壁塗装（予告） -->
+      <div class="work-card fade-in">
+        <div class="work-thumb thumb-gaiheki">
+          <div class="mini-site">
+            <div class="mini-hero-g">
+              <div class="mini-h-g">外壁塗装・<br>屋根塗装の専門店</div>
+              <div class="mini-btn-g">無料見積もり</div>
+            </div>
+            <div class="mini-body-g">
+              <div class="mini-box-g"></div>
+              <div class="mini-box-g"></div>
+              <div class="mini-box-g"></div>
+              <div class="mini-box-g"></div>
+            </div>
+          </div>
+          <div class="work-badge coming">Coming Soon</div>
+        </div>
+        <div class="work-info">
+          <div class="work-industry">外壁・屋根塗装</div>
+          <div class="work-name">外壁塗装業者（デモ作成中）</div>
+          <div class="work-desc">施工写真・対応エリア・無料見積もり動線を重視したデザイン。訪問見積もりへの導線を最適化。</div>
+          <div class="work-tags">
+            <span class="tag">スマホ対応</span>
+            <span class="tag">エリア掲載</span>
+            <span class="tag">見積もりフォーム</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 整骨院（予告） -->
+      <div class="work-card fade-in">
+        <div class="work-thumb thumb-seikotsu">
+          <div class="mini-site">
+            <div class="mini-hero-s">
+              <div class="mini-h-s">つらい痛みを、<br>根本から改善。</div>
+              <div class="mini-btn-s">ご予約はこちら</div>
+            </div>
+            <div class="mini-body-s">
+              <div class="mini-row-s"></div>
+              <div class="mini-row-s" style="width:80%"></div>
+              <div class="mini-row-s" style="width:60%"></div>
+            </div>
+          </div>
+          <div class="work-badge coming">Coming Soon</div>
+        </div>
+        <div class="work-info">
+          <div class="work-industry">整骨院・接骨院</div>
+          <div class="work-name">整骨院（デモ作成中）</div>
+          <div class="work-desc">オンライン予約導線・症状別メニュー・スタッフ紹介を重視。信頼感と清潔感のあるデザイン。</div>
+          <div class="work-tags">
+            <span class="tag">スマホ対応</span>
+            <span class="tag">予約フォーム</span>
+            <span class="tag">Googleマップ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="sec-label">About</p>
+    <h2 class="sec-title">HIKITATEについて</h2>
+
+    <div class="about-wrap">
+      <div class="about-mark">
+        <svg width="72" height="60" viewBox="0 0 70 52" fill="none">
+          <line x1="0"  y1="44" x2="70" y2="44" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="35" cy="44" r="3.8" fill="#6a84c8"/>
+          <line x1="35" y1="44" x2="35" y2="8"  stroke="#6a84c8" stroke-width="2"   stroke-linecap="round"/>
+          <line x1="35" y1="44" x2="18" y2="12" stroke="#6a84c8" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="35" y1="44" x2="52" y2="12" stroke="#6a84c8" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="35" y1="44" x2="6"  y2="23" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="35" y1="44" x2="64" y2="23" stroke="#6a84c8" stroke-width="1.6" stroke-linecap="round"/>
+          <line x1="35" y1="44" x2="0"  y2="37" stroke="#6a84c8" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="35" y1="44" x2="70" y2="37" stroke="#6a84c8" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="about-name">HIKITATE</div>
+        <div class="about-role">Web Design / Fukuoka</div>
+        <p class="about-text">
+          福岡を拠点に活動するウェブデザイナーです。<br>
+          地元の中小企業・個人店を中心に、「集客につながるホームページ」の制作を専門にしています。<br><br>
+          "引き立てる"というコンセプトのもと、主役はあくまでお客さまのビジネス。<br>技術的なことはすべてお任せください。打ち合わせから公開まで、わかりやすい言葉でご説明しながら進めます。
+        </p>
+        <div class="about-skills">
+          <span class="skill">HTML / CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">スマホ対応</span>
+          <span class="skill">SEO対策</span>
+          <span class="skill">お問合わせフォーム</span>
+          <span class="skill">Googleマップ連携</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+  <div class="container">
+    <p class="sec-label">Flow</p>
+    <h2 class="sec-title">ご依頼の流れ</h2>
+    <p class="sec-sub">難しいことは一切ありません。ご相談から公開まで、すべてサポートします。</p>
+
+    <div class="flow-list">
+      <div class="flow-item fade-in">
+        <div class="flow-circle">1</div>
+        <div class="flow-body">
+          <div class="flow-step-title">まずはご相談（無料）</div>
+          <div class="flow-step-desc">メールまたはお電話でご要望をお聞きします。「何をどう伝えたいか」だけ教えていただければOKです。</div>
+          <span class="flow-step-note">無料・お気軽にどうぞ</span>
+        </div>
+      </div>
+      <div class="flow-item fade-in">
+        <div class="flow-circle">2</div>
+        <div class="flow-body">
+          <div class="flow-step-title">デザインのご確認</div>
+          <div class="flow-step-desc">デモサイトをご覧いただきながら、色・文章・写真などを一緒に決めていきます。修正は何度でも対応します。</div>
+        </div>
+      </div>
+      <div class="flow-item fade-in">
+        <div class="flow-circle">3</div>
+        <div class="flow-body">
+          <div class="flow-step-title">公開・完成</div>
+          <div class="flow-step-desc">ご確認いただいた後、ホームページを公開します。公開後1ヶ月間は修正無料で対応いたします。</div>
+          <span class="flow-step-note">最短2週間で公開</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="sec-label" style="color:#555">Contact</p>
+    <h2 class="sec-title">お問合わせ</h2>
+    <p class="sec-sub">見積もり依頼・ご質問など、お気軽にどうぞ。<br>通常1〜2営業日以内にご返信します。</p>
+
+    <div class="contact-box">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>お名前・会社名</label>
+          <input type="text" placeholder="山田 太郎 / ○○株式会社">
+        </div>
+        <div class="form-group">
+          <label>メールアドレス</label>
+          <input type="email" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+          <label>ご相談内容</label>
+          <select>
+            <option value="">選択してください</option>
+            <option>ホームページの新規制作</option>
+            <option>既存サイトのリニューアル</option>
+            <option>料金・期間を聞きたい</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>メッセージ（任意）</label>
+          <textarea placeholder="業種・現在の状況・ご要望など、自由にお書きください"></textarea>
+        </div>
+        <button type="submit" class="btn-send">送信する →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <svg width="20" height="16" viewBox="0 0 70 52" fill="none">
+      <line x1="0"  y1="44" x2="70" y2="44" stroke="#555" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="35" cy="44" r="3.8" fill="#555"/>
+      <line x1="35" y1="44" x2="35" y2="8"  stroke="#555" stroke-width="2"   stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="18" y2="12" stroke="#555" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="52" y2="12" stroke="#555" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="6"  y2="23" stroke="#555" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="64" y2="23" stroke="#555" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="0"  y2="37" stroke="#555" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="35" y1="44" x2="70" y2="37" stroke="#555" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <span class="footer-logo-text">HIKITATE</span>
+  </div>
+  <div>福岡県 ／ Web Design</div>
+  <div style="margin-top:8px"><a href="mailto:ill.stuc@gmail.com">ill.stuc@gmail.com</a></div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('送信ありがとうございます！（※現在フォームは準備中です）');
+  }
+</script>
+
+</body>
+</html>
