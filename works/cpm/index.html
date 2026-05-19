@@ -122,13 +122,16 @@
     .ba-img {
       position: absolute;
       inset: 0;
-      background: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=960&q=80') center/cover no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     .ba-img-before {
-      filter: grayscale(0.85) brightness(0.42) contrast(1.15);
+      background-image: url('https://images.unsplash.com/photo-aT6GHryaVv0?w=960&q=80');
     }
     .ba-img-after {
-      filter: brightness(1.06) saturate(1.15);
+      background-image: url('https://images.unsplash.com/photo-8Cxroj1LoaA?w=960&q=80');
+      filter: brightness(1.05) saturate(1.1);
     }
 
     .ba-label {
@@ -276,16 +279,56 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .merit-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
-    .merit-icon { font-size: 36px; margin-bottom: 14px; }
     .merit-num {
       font-family: 'Oswald', sans-serif;
-      font-size: 13px;
-      color: var(--red);
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
+      font-size: 52px;
+      font-weight: 700;
+      color: rgba(192,57,43,0.1);
+      line-height: 1;
+      margin-bottom: 2px;
+      letter-spacing: -0.02em;
     }
     .merit-title { font-size: 16px; font-weight: 900; margin-bottom: 10px; }
     .merit-desc { font-size: 13px; color: #666; line-height: 1.8; font-weight: 300; }
+
+    /* ===== SERVICES ===== */
+    #service { background: #fff; padding: 60px 24px; }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #e8e8e8;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .service-item {
+      background: #fff;
+      padding: 32px 20px 28px;
+      text-align: center;
+    }
+    .service-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 10px;
+      color: var(--red);
+      letter-spacing: 0.25em;
+      margin-bottom: 12px;
+    }
+    .service-name {
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .service-desc {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    @media (max-width: 680px) {
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+    }
 
     /* ===== PRICE ===== */
     #price { background: #fff; }
@@ -718,6 +761,37 @@
   </div>
 </section>
 
+<!-- SERVICES -->
+<section id="service">
+  <div class="container">
+    <p class="section-en">Services</p>
+    <h2 class="section-title fade-in">販売からアフターフォローまで</h2>
+    <p class="section-sub fade-in">お車に関することなら、どんなご相談もお受けします。</p>
+    <div class="service-grid">
+      <div class="service-item fade-in">
+        <div class="service-label">SERVICE 01</div>
+        <div class="service-name">板金・塗装</div>
+        <div class="service-desc">キズ・ヘコミの修理から<br>全塗装まで対応</div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-label">SERVICE 02</div>
+        <div class="service-name">車検・整備</div>
+        <div class="service-desc">法定点検・定期整備・<br>各種修理に対応</div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-label">SERVICE 03</div>
+        <div class="service-name">タイヤ・油脂交換</div>
+        <div class="service-desc">エンジンオイル・タイヤ<br>各種消耗品の交換</div>
+      </div>
+      <div class="service-item fade-in">
+        <div class="service-label">SERVICE 04</div>
+        <div class="service-name">AIG保険<br>代理店</div>
+        <div class="service-desc">保険修理の手続きを<br>ワンストップで代行</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MERIT -->
 <section id="merit">
   <div class="container">
@@ -727,38 +801,32 @@
 
     <div class="merit-grid">
       <div class="merit-card fade-in">
-        <div class="merit-icon">💰</div>
-        <div class="merit-num">POINT 01</div>
+        <div class="merit-num">01</div>
         <div class="merit-title">他店より安く仕上げる</div>
         <div class="merit-desc">ディーラーや他の修理屋で「高い」と言われた案件も板金技術でリーズナブルに対応。パーツ交換不要の修理で費用を抑えます。</div>
       </div>
       <div class="merit-card fade-in">
-        <div class="merit-icon">🌍</div>
-        <div class="merit-num">POINT 02</div>
+        <div class="merit-num">02</div>
         <div class="merit-title">外車・輸入車も対応</div>
         <div class="merit-desc">ワーゲン・BMW・メルセデスなど輸入車の実績多数。外車専門店と変わらない品質を、リーズナブルな価格で提供します。</div>
       </div>
       <div class="merit-card fade-in">
-        <div class="merit-icon">🔍</div>
-        <div class="merit-num">POINT 03</div>
+        <div class="merit-num">03</div>
         <div class="merit-title">無料見積もり・相談歓迎</div>
         <div class="merit-desc">「これって直せる？」「いくらかかる？」だけでも構いません。まず見てから判断するので、気軽にご相談ください。</div>
       </div>
       <div class="merit-card fade-in">
-        <div class="merit-icon">🛡️</div>
-        <div class="merit-num">POINT 04</div>
-        <div class="merit-title">保険修理にも対応</div>
-        <div class="merit-desc">保険を使っての修理も承ります。保険会社とのやりとりのサポートも行いますので、初めての方もご安心ください。</div>
+        <div class="merit-num">04</div>
+        <div class="merit-title">AIG保険代理店として手続き代行</div>
+        <div class="merit-desc">AIG損害保険の正規代理店。事故後の保険手続きをここで一括対応できるので、保険会社への面倒なやりとりが不要です。</div>
       </div>
       <div class="merit-card fade-in">
-        <div class="merit-icon">⚡</div>
-        <div class="merit-num">POINT 05</div>
+        <div class="merit-num">05</div>
         <div class="merit-title">スピード対応</div>
         <div class="merit-desc">軽微な修理は即日対応も可能。お急ぎの場合はお電話でご相談ください。</div>
       </div>
       <div class="merit-card fade-in">
-        <div class="merit-icon">📍</div>
-        <div class="merit-num">POINT 06</div>
+        <div class="merit-num">06</div>
         <div class="merit-title">志免町・糟屋郡エリア密着</div>
         <div class="merit-desc">志免町・粕屋町・宇美町・新宮町・福岡市東区など糟屋郡全域に対応。地元の信頼あるお店として20年以上の実績。</div>
       </div>
