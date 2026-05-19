@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>C・P・M｜板金塗装・自動車修理 志免町</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #1a2a4a;
+      --navy:   #0d1b2e;
+      --navy2:  #162236;
+      --gold:   #c8a84b;
+      --gold2:  #e8c86a;
       --silver: #8a9ab0;
-      --light: #f4f6f9;
-      --accent: #c8a84b;
+      --light:  #f5f6f8;
     }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
       background: #fff;
-      color: #222;
+      color: #1a1a1a;
     }
 
     /* ===== HEADER ===== */
@@ -24,41 +29,31 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(26,42,74,0.97);
-      backdrop-filter: blur(8px);
-      height: 60px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 32px;
+      background: rgba(13,27,46,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,168,75,0.2);
     }
-    .header-logo {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-    }
-    .header-logo-main {
+    .h-logo { display: flex; flex-direction: column; line-height: 1; }
+    .h-logo-main {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
       color: #fff;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
     }
-    .header-logo-sub {
-      color: var(--silver);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      margin-top: 2px;
-    }
-    .header-tel {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .tel-label { color: var(--silver); font-size: 11px; }
-    .tel-number {
-      color: #fff;
-      font-size: 18px;
-      font-weight: 900;
+    .h-logo-sub { font-size: 10px; color: var(--silver); letter-spacing: 0.1em; margin-top: 3px; }
+    .h-tel { display: flex; align-items: center; gap: 10px; }
+    .h-tel-label { font-size: 10px; color: var(--silver); letter-spacing: 0.1em; }
+    .h-tel-num {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--gold);
       text-decoration: none;
       letter-spacing: 0.05em;
     }
@@ -67,482 +62,685 @@
     .hero {
       min-height: 100vh;
       background: var(--navy);
-      display: flex;
-      align-items: center;
-      padding: 80px 24px 60px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
     }
+
+    /* 斜め背景装飾 */
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 40% at 80% 50%, rgba(200,168,75,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+      top: -20%;
+      right: -10%;
+      width: 55%;
+      height: 140%;
+      background: var(--navy2);
+      transform: skewX(-8deg);
     }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold2) 50%, var(--gold) 70%, transparent 100%);
+    }
+
+    /* ゴールドの縦線 */
+    .hero-line {
+      position: absolute;
+      top: 0; bottom: 0;
+      right: 44%;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+      opacity: 0.4;
+    }
+
     .hero-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      width: 100%;
       position: relative;
       z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px 80px;
+      width: 100%;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 0;
       align-items: center;
     }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(200,168,75,0.15);
-      color: var(--accent);
+
+    .hero-left { padding-right: 60px; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-line {
+      width: 32px; height: 1px;
+      background: var(--gold);
+    }
+    .hero-eyebrow-text {
       font-size: 11px;
+      color: var(--gold);
       letter-spacing: 0.25em;
-      padding: 5px 16px;
-      border-radius: 2px;
-      border: 1px solid rgba(200,168,75,0.3);
-      margin-bottom: 24px;
+      text-transform: uppercase;
     }
+
     .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(44px, 5.5vw, 72px);
       color: #fff;
-      font-size: clamp(26px, 3.5vw, 44px);
-      font-weight: 900;
-      line-height: 1.5;
-      margin-bottom: 20px;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
     }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent);
+    .hero-h1-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: clamp(16px, 2vw, 22px);
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
     }
+
     .hero-desc {
-      color: #8a9ab0;
       font-size: 14px;
-      line-height: 1.9;
-      margin-bottom: 36px;
+      color: var(--silver);
+      line-height: 2;
+      margin-bottom: 44px;
+      border-left: 2px solid rgba(200,168,75,0.4);
+      padding-left: 16px;
     }
-    .hero-cta {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .btn-tel {
+
+    .hero-cta { display: flex; flex-direction: column; gap: 12px; }
+    .btn-main {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #fff;
+      justify-content: space-between;
+      background: var(--gold);
+      color: var(--navy);
       text-decoration: none;
-      padding: 16px 24px;
-      border-radius: 6px;
-      font-size: 20px;
-      font-weight: 900;
+      padding: 18px 28px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.2s;
       letter-spacing: 0.05em;
-      transition: opacity 0.2s;
     }
-    .btn-tel:hover { opacity: 0.85; }
-    .btn-tel-note { font-size: 11px; font-weight: 400; opacity: 0.8; }
-    .btn-form {
+    .btn-main:hover { background: var(--gold2); transform: translateY(-1px); }
+    .btn-main-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.05em;
+    }
+    .btn-sub {
       display: block;
       text-align: center;
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-      text-decoration: none;
-      padding: 13px 24px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 700;
       border: 1px solid rgba(255,255,255,0.15);
-      transition: background 0.2s;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      padding: 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
     }
-    .btn-form:hover { background: rgba(255,255,255,0.14); }
+    .btn-sub:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ヒーロー右側 */
-    .hero-points {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .hero-point {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      padding: 20px 24px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .hero-point-icon {
-      font-size: 28px;
-      flex-shrink: 0;
-    }
-    .hero-point-title {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-    .hero-point-body {
+    /* 右側ポイント */
+    .hero-right { padding-left: 48px; }
+    .hero-stat-head {
+      font-size: 11px;
       color: var(--silver);
-      font-size: 12px;
-      line-height: 1.7;
+      letter-spacing: 0.2em;
+      margin-bottom: 24px;
+      text-transform: uppercase;
     }
+    .hero-stats { display: flex; flex-direction: column; gap: 0; }
+    .hero-stat {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-stat:first-of-type { border-top: 1px solid rgba(255,255,255,0.06); }
+    .hero-stat-num {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 90px;
+      letter-spacing: -0.02em;
+    }
+    .hero-stat-num span { font-size: 20px; }
+    .hero-stat-label { font-size: 13px; color: #fff; font-weight: 700; margin-bottom: 2px; }
+    .hero-stat-sub { font-size: 11px; color: var(--silver); line-height: 1.5; }
 
     /* ===== PRICE ===== */
     #price {
+      padding: 96px 32px;
       background: var(--light);
-      padding: 80px 24px;
+      position: relative;
     }
-    .container { max-width: 900px; margin: 0 auto; }
-    .sec-label {
-      text-align: center;
-      color: var(--navy);
-      font-size: 11px;
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      justify-content: center;
+    }
+    .section-head-line {
+      width: 40px; height: 1px;
+      background: var(--gold);
+    }
+    .sec-en {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--gold);
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      margin-bottom: 8px;
-      opacity: 0.5;
+      text-align: center;
     }
     .sec-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
       text-align: center;
-      font-size: clamp(20px, 3vw, 30px);
-      font-weight: 900;
       margin-bottom: 10px;
       color: var(--navy);
     }
     .sec-sub {
       text-align: center;
-      color: #666;
+      color: #777;
       font-size: 13px;
-      line-height: 1.8;
-      margin-bottom: 48px;
+      line-height: 1.9;
+      margin-bottom: 52px;
+      font-weight: 300;
     }
+
+    .container { max-width: 960px; margin: 0 auto; }
+
+    .price-note-wrap { text-align: center; margin-bottom: 36px; }
     .price-note {
       display: inline-block;
-      background: rgba(200,168,75,0.1);
-      color: #8a6a20;
-      border: 1px solid rgba(200,168,75,0.3);
       font-size: 12px;
-      padding: 4px 14px;
-      border-radius: 3px;
-      margin-bottom: 32px;
+      color: #8a6a20;
+      background: rgba(200,168,75,0.1);
+      border: 1px solid rgba(200,168,75,0.3);
+      padding: 5px 18px;
+      border-radius: 100px;
     }
+
     .price-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
     }
     .price-card {
       background: #fff;
-      border-radius: 10px;
-      padding: 24px 20px;
+      padding: 32px 20px;
       text-align: center;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-      border-top: 3px solid var(--navy);
+      border-right: 1px solid #f0f0f0;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+    .price-card:last-child { border-right: none; }
+    .price-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); z-index: 1; }
+    .price-card.featured {
+      background: var(--navy);
+    }
+    .price-card-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: #eee;
+    }
+    .price-card.featured .price-card-bar { background: var(--gold); }
     .price-type {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
+      color: #888;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
     }
+    .price-card.featured .price-type { color: var(--silver); }
     .price-example {
       font-size: 11px;
-      color: #999;
-      margin-bottom: 8px;
+      color: #bbb;
+      margin-bottom: 14px;
+      min-height: 30px;
     }
+    .price-card.featured .price-example { color: rgba(255,255,255,0.3); }
+    .price-from { font-size: 10px; color: #aaa; margin-bottom: 2px; }
+    .price-card.featured .price-from { color: var(--silver); }
     .price-range {
-      font-size: 22px;
-      font-weight: 900;
-      color: #111;
-      line-height: 1.2;
+      font-family: 'Oswald', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
     }
-    .price-range span {
-      font-size: 13px;
-      font-weight: 400;
-      color: #888;
-    }
-    .price-caption {
-      text-align: center;
-      font-size: 12px;
-      color: #999;
+    .price-card.featured .price-range { color: var(--gold); }
+    .price-range-unit { font-size: 14px; font-weight: 300; }
+    .price-badge {
+      display: inline-block;
+      margin-top: 14px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
     }
 
     /* ===== SERVICES ===== */
     #services {
-      padding: 80px 24px;
-      background: #fff;
+      padding: 96px 32px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
     }
+    #services::before {
+      content: 'SERVICE';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Oswald', sans-serif;
+      font-size: 200px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.02);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    #services .sec-en { color: var(--gold); }
+    #services .sec-title { color: #fff; }
+    #services .sec-sub { color: var(--silver); }
+
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
     }
     .service-card {
-      border: 1px solid #eee;
-      border-radius: 12px;
-      padding: 28px 24px;
+      background: rgba(255,255,255,0.03);
+      padding: 36px 32px;
+      position: relative;
+      transition: background 0.2s;
     }
-    .service-icon { font-size: 36px; margin-bottom: 14px; }
+    .service-card:hover { background: rgba(200,168,75,0.07); }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--gold);
+      transition: height 0.3s;
+    }
+    .service-card:hover::before { height: 100%; }
+    .service-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
     .service-name {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+    .service-name-icon { font-size: 20px; }
     .service-desc {
       font-size: 13px;
-      color: #666;
-      line-height: 1.8;
+      color: var(--silver);
+      line-height: 1.9;
+      font-weight: 300;
     }
     .service-tag {
       display: inline-block;
-      margin-top: 12px;
-      background: var(--light);
-      color: var(--navy);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 3px;
+      margin-top: 16px;
+      border: 1px solid rgba(200,168,75,0.4);
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      padding: 3px 12px;
+      border-radius: 100px;
     }
 
     /* ===== VOICE ===== */
     #voice {
-      background: var(--light);
-      padding: 80px 24px;
+      padding: 96px 32px;
+      background: #fff;
     }
     .voice-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
     .voice-card {
-      background: #fff;
+      border: 1px solid #eee;
       border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      padding: 32px 28px;
+      position: relative;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .voice-stars { color: #f5a623; font-size: 14px; margin-bottom: 10px; }
+    .voice-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .voice-quote-mark {
+      font-family: 'Oswald', sans-serif;
+      font-size: 64px;
+      color: var(--gold);
+      opacity: 0.2;
+      line-height: 1;
+      margin-bottom: -8px;
+    }
+    .voice-stars { color: var(--gold); font-size: 13px; margin-bottom: 14px; }
     .voice-text {
       font-size: 14px;
       color: #333;
-      line-height: 1.8;
-      margin-bottom: 14px;
+      line-height: 1.9;
+      margin-bottom: 20px;
+      font-weight: 300;
     }
-    .voice-text::before { content: '「'; }
-    .voice-text::after { content: '」'; }
-    .voice-name { font-size: 12px; color: #aaa; }
+    .voice-divider {
+      width: 24px; height: 1px;
+      background: var(--gold);
+      margin-bottom: 12px;
+    }
+    .voice-name { font-size: 11px; color: #aaa; letter-spacing: 0.1em; }
 
     /* ===== ACCESS ===== */
     #access {
-      padding: 80px 24px;
-      background: #fff;
+      padding: 96px 32px;
+      background: var(--light);
     }
     .access-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
       align-items: start;
     }
-    .access-info { display: flex; flex-direction: column; gap: 20px; }
+    .access-info { display: flex; flex-direction: column; gap: 0; }
     .access-row {
       display: flex;
-      gap: 16px;
-      align-items: flex-start;
+      gap: 0;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 18px 0;
     }
+    .access-row:first-child { border-top: 1px solid #e8e8e8; }
     .access-row-label {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: var(--navy);
-      letter-spacing: 0.1em;
-      width: 64px;
+      letter-spacing: 0.15em;
+      width: 72px;
       flex-shrink: 0;
-      padding-top: 2px;
-      opacity: 0.6;
+      opacity: 0.45;
+      text-transform: uppercase;
+      padding-top: 3px;
     }
     .access-row-val {
       font-size: 14px;
       color: #333;
       line-height: 1.7;
+      font-weight: 300;
     }
-    .map-placeholder {
-      background: #e8ecf0;
-      border-radius: 10px;
-      height: 240px;
+    .access-row-val a { color: var(--navy); font-weight: 700; text-decoration: none; }
+    .map-box {
+      background: var(--navy);
+      border-radius: 12px;
+      height: 260px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #aaa;
-      font-size: 13px;
+      gap: 12px;
     }
+    .map-box-icon { font-size: 36px; }
+    .map-box-text { color: var(--silver); font-size: 13px; }
+    .map-box-link {
+      color: var(--gold);
+      font-size: 12px;
+      text-decoration: none;
+      border: 1px solid rgba(200,168,75,0.4);
+      padding: 6px 20px;
+      border-radius: 100px;
+      letter-spacing: 0.1em;
+      transition: background 0.2s;
+    }
+    .map-box-link:hover { background: rgba(200,168,75,0.1); }
 
     /* ===== CONTACT ===== */
     #contact {
+      padding: 96px 32px;
       background: var(--navy);
-      padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
     }
+    #contact::before {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,168,75,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #contact .sec-en { color: var(--gold); }
     #contact .sec-title { color: #fff; }
     #contact .sec-sub { color: var(--silver); }
-    .contact-inner {
-      max-width: 560px;
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 860px;
       margin: 0 auto;
     }
     .contact-tel-box {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(200,168,75,0.08);
+      border: 1px solid rgba(200,168,75,0.25);
       border-radius: 12px;
-      padding: 32px;
-      text-align: center;
-      margin-bottom: 20px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
     }
     .contact-tel-label {
-      color: var(--silver);
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      margin-bottom: 12px;
-    }
-    .contact-tel-num {
-      color: #fff;
-      font-size: 36px;
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      display: block;
-      text-decoration: none;
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       margin-bottom: 8px;
     }
-    .contact-tel-hours {
-      color: var(--silver);
-      font-size: 12px;
+    .contact-tel-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: block;
+      transition: color 0.2s;
     }
+    .contact-tel-num:hover { color: var(--gold); }
+    .contact-tel-hours { font-size: 12px; color: var(--silver); margin-top: 4px; }
+    .contact-tel-note { font-size: 12px; color: var(--silver); font-weight: 300; line-height: 1.7; margin-top: 16px; }
+
     .form-box {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 12px;
-      padding: 28px;
+      padding: 32px;
     }
     .form-box-label {
+      font-size: 10px;
       color: var(--silver);
-      font-size: 11px;
       letter-spacing: 0.2em;
-      margin-bottom: 20px;
+      text-transform: uppercase;
       display: block;
+      margin-bottom: 20px;
     }
-    .form-group { margin-bottom: 14px; }
+    .form-group { margin-bottom: 12px; }
     .form-group input,
     .form-group textarea,
     .form-group select {
       width: 100%;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 6px;
       padding: 12px 14px;
       color: #fff;
-      font-size: 14px;
+      font-size: 13px;
       font-family: inherit;
       outline: none;
       transition: border-color 0.2s;
     }
     .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
     .form-group input:focus,
-    .form-group textarea:focus { border-color: var(--accent); }
-    .form-group textarea { height: 90px; resize: vertical; }
-    .form-group select option { background: #1a2a4a; }
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { height: 80px; resize: none; }
+    .form-group select option { background: #0d1b2e; }
     .btn-submit {
       width: 100%;
-      background: var(--accent);
-      color: #fff;
+      background: var(--gold);
+      color: var(--navy);
       border: none;
       padding: 14px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       border-radius: 6px;
       cursor: pointer;
       font-family: inherit;
-      margin-top: 6px;
-      transition: opacity 0.2s;
+      margin-top: 4px;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
     }
-    .btn-submit:hover { opacity: 0.85; }
+    .btn-submit:hover { background: var(--gold2); }
 
     /* ===== FOOTER ===== */
     footer {
-      background: #0d1624;
-      padding: 24px;
-      text-align: center;
-      color: #444;
-      font-size: 12px;
+      background: #060e1a;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+    .footer-logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.15em;
+    }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 680px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-left { padding-right: 0; margin-bottom: 40px; }
+      .hero-right { padding-left: 0; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 40px; }
+      .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
       .access-wrap { grid-template-columns: 1fr; }
-      .header-tel .tel-label { display: none; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+      header { padding: 0 16px; }
     }
 
     /* ===== FADE ===== */
     .fade-in {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s, transform 0.6s;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
     .fade-in.visible { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
-  <div class="header-logo">
-    <span class="header-logo-main">C・P・M</span>
-    <span class="header-logo-sub">板金塗装 / 志免町</span>
+  <div class="h-logo">
+    <span class="h-logo-main">C · P · M</span>
+    <span class="h-logo-sub">板金塗装 / 志免町</span>
   </div>
-  <div class="header-tel">
-    <span class="tel-label">お気軽にどうぞ</span>
-    <a href="tel:0925160603" class="tel-number">092-516-0603</a>
+  <div class="h-tel">
+    <span class="h-tel-label">無料見積もり</span>
+    <a href="tel:0925160603" class="h-tel-num">092-516-0603</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-line"></div>
   <div class="hero-inner">
-    <div>
-      <div class="hero-tag">糟屋郡志免町の板金塗装専門</div>
-      <h1>キズ・ヘコミ、<br><em>まずは気軽に</em><br>相談してください。</h1>
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">糟屋郡志免町 / 板金塗装専門</span>
+      </div>
+      <h1>SCRATCH<br>&amp; DENT<br>REPAIR.</h1>
+      <p class="hero-h1-sub">キズ・ヘコミ、他店より安く仕上げます</p>
       <p class="hero-desc">
-        他店で「高い」と言われた修理も、丁寧な板金塗装でリーズナブルに対応。<br>
-        外車・輸入車もお任せください。<br>
-        無料見積もり、お気軽にどうぞ。
+        ディーラーや他の修理屋で「高い」と言われた修理も、丁寧な板金技術でリーズナブルに対応。外車・輸入車もお任せください。
       </p>
       <div class="hero-cta">
-        <a href="tel:0925160603" class="btn-tel">
-          📞 092-516-0603
-          <span class="btn-tel-note">無料見積もり</span>
+        <a href="tel:0925160603" class="btn-main">
+          <span>📞 無料見積もり</span>
+          <span class="btn-main-num">092-516-0603</span>
         </a>
-        <a href="#contact" class="btn-form">メールで問い合わせる</a>
+        <a href="#contact" class="btn-sub">メールで問い合わせる</a>
       </div>
     </div>
 
-    <div class="hero-points">
-      <div class="hero-point">
-        <div class="hero-point-icon">💰</div>
-        <div>
-          <div class="hero-point-title">他店より安く、丁寧な仕上がり</div>
-          <div class="hero-point-body">ディーラー・他の修理屋で断られた・高すぎた案件も、板金技術でリーズナブルに対応します。</div>
+    <div class="hero-right">
+      <p class="hero-stat-head">Why C · P · M ?</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.8<span>★</span></div>
+          <div>
+            <div class="hero-stat-label">Googleマップ評価</div>
+            <div class="hero-stat-sub">お客様の口コミ22件より</div>
+          </div>
         </div>
-      </div>
-      <div class="hero-point">
-        <div class="hero-point-icon">🚗</div>
-        <div>
-          <div class="hero-point-title">外車・輸入車もOK</div>
-          <div class="hero-point-body">ワーゲン・BMW・ベンツなど輸入車の修理実績多数。外車専門店と変わらない仕上がりを提供します。</div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">¥5<span>千〜</span></div>
+          <div>
+            <div class="hero-stat-label">他店の見積もりより安く対応</div>
+            <div class="hero-stat-sub">外車の修理も2〜30万の誤診断を5千円で解決した実績あり</div>
+          </div>
         </div>
-      </div>
-      <div class="hero-point">
-        <div class="hero-point-icon">🔍</div>
-        <div>
-          <div class="hero-point-title">無料見積もり・相談歓迎</div>
-          <div class="hero-point-body">「これって直せる？いくらかかる？」だけでも構いません。気軽にご相談ください。</div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">0<span>円</span></div>
+          <div>
+            <div class="hero-stat-label">見積もり費用</div>
+            <div class="hero-stat-sub">「直せる？」だけでも気軽にどうぞ</div>
+          </div>
         </div>
       </div>
     </div>
@@ -552,73 +750,86 @@
 <!-- PRICE -->
 <section id="price">
   <div class="container">
-    <p class="sec-label">Price</p>
-    <h2 class="sec-title">料金の目安</h2>
-    <p class="sec-sub">
-      修理箇所の大きさ・状態によって変わります。<br>
-      まずは無料で見積もりします。お気軽にご相談ください。
-    </p>
+    <div class="section-head">
+      <div class="section-head-line"></div>
+      <p class="sec-en">Price</p>
+      <div class="section-head-line"></div>
+    </div>
+    <h2 class="sec-title fade-in">料金の目安</h2>
+    <p class="sec-sub fade-in">「いくらかかるの？」まずはここで確認してください。<br>現車確認後に正確な見積もりをご案内します。</p>
 
-    <div style="text-align:center; margin-bottom:32px">
-      <span class="price-note">※ 実際の金額は現車確認後にご案内します</span>
+    <div class="price-note-wrap fade-in">
+      <span class="price-note">保険対応可 ／ 見積もり無料</span>
     </div>
 
-    <div class="price-grid">
-      <div class="price-card fade-in">
+    <div class="price-grid fade-in">
+      <div class="price-card">
+        <div class="price-card-bar"></div>
         <div class="price-type">小キズ・小ヘコミ</div>
-        <div class="price-example">例）ドアのすり傷・駐車場の当て逃げ</div>
-        <div class="price-range">¥8,000<span>〜</span></div>
+        <div class="price-example">ドアのすり傷・駐車場の当て逃げ</div>
+        <div class="price-from">目安</div>
+        <div class="price-range">8,000<span class="price-range-unit">円〜</span></div>
       </div>
-      <div class="price-card fade-in">
+      <div class="price-card featured">
+        <div class="price-card-bar"></div>
         <div class="price-type">中程度の損傷</div>
-        <div class="price-example">例）バンパー・フェンダーのヘコミ</div>
-        <div class="price-range">¥25,000<span>〜</span></div>
+        <div class="price-example">バンパー・フェンダーのヘコミ</div>
+        <div class="price-from">目安</div>
+        <div class="price-range">25,000<span class="price-range-unit">円〜</span></div>
+        <div class="price-badge">よくあるご相談</div>
       </div>
-      <div class="price-card fade-in">
-        <div class="price-type">大きな損傷・事故修理</div>
-        <div class="price-example">例）側面全体・複数パネル</div>
-        <div class="price-range">¥60,000<span>〜</span></div>
+      <div class="price-card">
+        <div class="price-card-bar"></div>
+        <div class="price-type">大きな損傷・事故</div>
+        <div class="price-example">側面全体・複数パネル</div>
+        <div class="price-from">目安</div>
+        <div class="price-range">60,000<span class="price-range-unit">円〜</span></div>
       </div>
-      <div class="price-card fade-in">
-        <div class="price-type">全塗装</div>
-        <div class="price-example">例）色変え・全体リフレッシュ</div>
-        <div class="price-range">¥150,000<span>〜</span></div>
+      <div class="price-card">
+        <div class="price-card-bar"></div>
+        <div class="price-type">全塗装・色変え</div>
+        <div class="price-example">経年劣化のリフレッシュ</div>
+        <div class="price-from">目安</div>
+        <div class="price-range">150,000<span class="price-range-unit">円〜</span></div>
       </div>
     </div>
-    <p class="price-caption">保険対応可（保険会社への対応もサポートします）</p>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <p class="sec-label">Services</p>
-    <h2 class="sec-title">対応メニュー</h2>
-    <p class="sec-sub">板金塗装を中心に、幅広い修理に対応します。</p>
+    <div class="section-head">
+      <div class="section-head-line"></div>
+      <p class="sec-en">Services</p>
+      <div class="section-head-line"></div>
+    </div>
+    <h2 class="sec-title fade-in">対応メニュー</h2>
+    <p class="sec-sub fade-in">板金塗装を中心に、幅広い修理に対応します。</p>
 
     <div class="service-grid">
       <div class="service-card fade-in">
-        <div class="service-icon">🔨</div>
-        <div class="service-name">板金塗装</div>
-        <div class="service-desc">キズ・ヘコミを元の状態に戻します。新品パーツ交換ではなく板金で直すため、コストを抑えられます。</div>
-        <span class="service-tag">最短即日〜</span>
+        <div class="service-num">01</div>
+        <div class="service-name"><span class="service-name-icon">🔨</span>板金塗装</div>
+        <p class="service-desc">キズ・ヘコミを元の状態に戻します。新品パーツ交換ではなく板金で直すため、コストを大幅に抑えられます。</p>
+        <span class="service-tag">最短即日対応</span>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">💥</div>
-        <div class="service-name">事故修理</div>
-        <div class="service-desc">追突・接触事故の修理に対応。保険会社とのやりとりもサポートします。</div>
+        <div class="service-num">02</div>
+        <div class="service-name"><span class="service-name-icon">💥</span>事故修理</div>
+        <p class="service-desc">追突・接触事故の修理に対応。保険会社とのやりとりのサポートも行います。</p>
         <span class="service-tag">保険対応可</span>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">🌍</div>
-        <div class="service-name">外車・輸入車</div>
-        <div class="service-desc">ワーゲン・BMW・メルセデス・ボルボなど輸入車の修理実績多数。外車専門店と変わらない品質で対応します。</div>
+        <div class="service-num">03</div>
+        <div class="service-name"><span class="service-name-icon">🌍</span>外車・輸入車</div>
+        <p class="service-desc">ワーゲン・BMW・メルセデスなど輸入車の修理実績多数。外車専門店と変わらない品質を提供します。</p>
         <span class="service-tag">輸入車OK</span>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">🎨</div>
-        <div class="service-name">全塗装・色変え</div>
-        <div class="service-desc">経年劣化した塗装のリフレッシュや、好みの色への変更も対応。車検対応色はもちろん、特注色も相談可。</div>
+        <div class="service-num">04</div>
+        <div class="service-name"><span class="service-name-icon">🎨</span>全塗装・色変え</div>
+        <p class="service-desc">経年劣化した塗装のリフレッシュや好みの色への変更も対応。特注色も相談可能です。</p>
         <span class="service-tag">要相談</span>
       </div>
     </div>
@@ -628,25 +839,35 @@
 <!-- VOICE -->
 <section id="voice">
   <div class="container">
-    <p class="sec-label">Voice</p>
-    <h2 class="sec-title">お客様の声</h2>
-    <p class="sec-sub">Googleマップのクチコミから一部ご紹介します。</p>
+    <div class="section-head">
+      <div class="section-head-line"></div>
+      <p class="sec-en">Reviews</p>
+      <div class="section-head-line"></div>
+    </div>
+    <h2 class="sec-title fade-in">お客様の声</h2>
+    <p class="sec-sub fade-in">Googleマップのクチコミより一部ご紹介します。</p>
 
     <div class="voice-grid">
       <div class="voice-card fade-in">
+        <div class="voice-quote-mark">"</div>
         <div class="voice-stars">★★★★★</div>
         <p class="voice-text">凄く丁寧な仕事で、金額も他店よりお安いと思います。また何かあればお願いしたいです。</p>
-        <div class="voice-name">クチコミより</div>
+        <div class="voice-divider"></div>
+        <div class="voice-name">Googleクチコミより</div>
       </div>
       <div class="voice-card fade-in">
+        <div class="voice-quote-mark">"</div>
         <div class="voice-stars">★★★★★</div>
-        <p class="voice-text">外車専門修理屋でワーゲンを2〜30万と誤診断され、こちらに見せると5千円で済みました。車好きの方が多そうで、信頼できるショップです！</p>
-        <div class="voice-name">クチコミより</div>
+        <p class="voice-text">外車専門店でワーゲンを2〜30万と言われ、こちらに持ち込むと5千円で解決。車好きの方が多そうで、信頼できるショップです。</p>
+        <div class="voice-divider"></div>
+        <div class="voice-name">Googleクチコミより</div>
       </div>
       <div class="voice-card fade-in">
+        <div class="voice-quote-mark">"</div>
         <div class="voice-stars">★★★★★</div>
-        <p class="voice-text">対応や価格も良心的で、ガリキズもすごく綺麗に仕上げてくれました。何かあったらまたお願いしたいです。</p>
-        <div class="voice-name">クチコミより</div>
+        <p class="voice-text">対応も価格も良心的で、ガリキズをすごく綺麗に仕上げてくれました。何かあったらまたお願いしたいです。</p>
+        <div class="voice-divider"></div>
+        <div class="voice-name">Googleクチコミより</div>
       </div>
     </div>
   </div>
@@ -655,34 +876,41 @@
 <!-- ACCESS -->
 <section id="access">
   <div class="container">
-    <p class="sec-label">Access</p>
-    <h2 class="sec-title">アクセス・営業時間</h2>
+    <div class="section-head">
+      <div class="section-head-line"></div>
+      <p class="sec-en">Access</p>
+      <div class="section-head-line"></div>
+    </div>
+    <h2 class="sec-title fade-in">アクセス・営業時間</h2>
 
     <div class="access-wrap">
-      <div class="access-info">
+      <div class="access-info fade-in">
         <div class="access-row">
-          <div class="access-row-label">店名</div>
+          <div class="access-row-label">Shop</div>
           <div class="access-row-val">C・P・M</div>
         </div>
         <div class="access-row">
-          <div class="access-row-label">住所</div>
-          <div class="access-row-val">福岡県糟屋郡志免町南里２丁目１１−２１</div>
+          <div class="access-row-label">Address</div>
+          <div class="access-row-val">福岡県糟屋郡志免町<br>南里２丁目１１−２１</div>
         </div>
         <div class="access-row">
-          <div class="access-row-label">電話</div>
-          <div class="access-row-val"><a href="tel:0925160603" style="color:#1a2a4a;font-weight:700">092-516-0603</a></div>
+          <div class="access-row-label">Tel</div>
+          <div class="access-row-val"><a href="tel:0925160603">092-516-0603</a></div>
         </div>
         <div class="access-row">
-          <div class="access-row-label">営業時間</div>
-          <div class="access-row-val">8:00〜17:00<br><span style="font-size:12px;color:#999">土日祝の対応は要相談</span></div>
+          <div class="access-row-label">Hours</div>
+          <div class="access-row-val">8:00 – 17:00<br><span style="font-size:12px;color:#aaa">土日祝の対応は要相談</span></div>
         </div>
         <div class="access-row">
-          <div class="access-row-label">対応エリア</div>
-          <div class="access-row-val">志免町・粕屋町・宇美町・篠栗町・新宮町<br>福岡市東区・博多区・周辺エリア</div>
+          <div class="access-row-label">Area</div>
+          <div class="access-row-val">志免町・粕屋町・宇美町<br>福岡市東区・博多区 ほか周辺エリア</div>
         </div>
       </div>
-      <div class="map-placeholder">
-        📍 Googleマップはこちら
+
+      <div class="map-box fade-in">
+        <div class="map-box-icon">📍</div>
+        <div class="map-box-text">福岡県糟屋郡志免町南里２丁目</div>
+        <a href="https://maps.google.com/?q=C+P+M+志免町南里" target="_blank" class="map-box-link">Googleマップで見る</a>
       </div>
     </div>
   </div>
@@ -691,19 +919,26 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <p class="sec-label" style="color:rgba(255,255,255,0.3)">Contact</p>
-    <h2 class="sec-title">お問い合わせ</h2>
-    <p class="sec-sub">「直せる？」「いくら？」だけでも大歓迎です。お気軽にどうぞ。</p>
+    <div class="section-head">
+      <div class="section-head-line"></div>
+      <p class="sec-en">Contact</p>
+      <div class="section-head-line"></div>
+    </div>
+    <h2 class="sec-title fade-in">お問い合わせ</h2>
+    <p class="sec-sub fade-in">「直せる？」「いくら？」だけでも大歓迎です。</p>
 
-    <div class="contact-inner">
-      <div class="contact-tel-box">
-        <div class="contact-tel-label">お電話でのお問い合わせ</div>
+    <div class="contact-wrap">
+      <div class="contact-tel-box fade-in">
+        <div class="contact-tel-label">Phone</div>
         <a href="tel:0925160603" class="contact-tel-num">092-516-0603</a>
-        <div class="contact-tel-hours">受付時間 8:00〜17:00</div>
+        <div class="contact-tel-hours">受付 8:00 – 17:00</div>
+        <p class="contact-tel-note">
+          「キズを見てほしい」「いくらかかるか知りたい」など、まずはお気軽にどうぞ。現車確認後に正確なお見積もりをご案内します。
+        </p>
       </div>
 
-      <div class="form-box">
-        <span class="form-box-label">メールでのお問い合わせ</span>
+      <div class="form-box fade-in">
+        <span class="form-box-label">Mail Form</span>
         <form onsubmit="handleSubmit(event)">
           <div class="form-group">
             <input type="text" placeholder="お名前">
@@ -722,7 +957,7 @@
             </select>
           </div>
           <div class="form-group">
-            <textarea placeholder="車種・損傷の状況など、自由にお書きください（任意）"></textarea>
+            <textarea placeholder="車種・状況など（任意）"></textarea>
           </div>
           <button type="submit" class="btn-submit">送信する →</button>
         </form>
@@ -731,15 +966,16 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div style="color:#666; margin-bottom:4px">C・P・M｜板金塗装・自動車修理</div>
-  福岡県糟屋郡志免町南里２丁目１１−２１　／　092-516-0603
+  <div class="footer-logo">C · P · M</div>
+  <div class="footer-copy">福岡県糟屋郡志免町南里２丁目１１−２１　／　092-516-0603</div>
 </footer>
 
 <script>
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   function handleSubmit(e) {
@@ -747,6 +983,5 @@
     alert('送信ありがとうございます！（※デモサイトのため実際には送信されません）');
   }
 </script>
-
 </body>
 </html>
