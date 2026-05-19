@@ -167,6 +167,36 @@
       margin-bottom: 56px;
     }
 
+    /* ===== BENEFITS ===== */
+    #benefits { background: #fff; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .benefit-card {
+      background: #f8f9fc;
+      border: 1px solid #e8edf8;
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+    .benefit-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .benefit-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .benefit-body {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+    }
+
     /* ===== WORKS ===== */
     #works { background: #f6f6f6; }
 
@@ -569,11 +599,12 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Web Design Portfolio</div>
-    <h1>地域のお店を、<br><em>ちゃんと見つけてもらえる</em><br>ホームページに。</h1>
+    <div class="hero-tag">Web Design for Blue Workers</div>
+    <h1>現場の電話を、<br><em>ホームページに</em><br>任せませんか。</h1>
     <p class="hero-desc">
-      スマートフォン対応・集客改善・わかりやすい価格。<br>
-      地元の中小企業・個人店を専門に、<br>使われるホームページを作ります。
+      「料金は？」「場所は？」「どんな工事をしてる？」<br>
+      よくある問い合わせはサイトが答えてくれる。<br>
+      現場を止めずに、仕事を増やす。
     </p>
     <div class="hero-badge">
       <div>
@@ -597,12 +628,39 @@
   </div>
 </section>
 
+<!-- BENEFITS -->
+<section id="benefits">
+  <div class="container">
+    <p class="sec-label">Why Website</p>
+    <h2 class="sec-title">ホームページが<br>現場を助ける</h2>
+    <p class="sec-sub">職人・施工業者・整骨院など、現場で動く仕事こそ<br>ホームページの効果が出やすい業種です。</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon">📵</div>
+        <div class="benefit-title">作業中の電話が減る</div>
+        <div class="benefit-body">料金・場所・対応内容をサイトに載せるだけで、同じ内容の問い合わせ電話がぐっと減ります。手が離せない現場での中断がなくなります。</div>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon">🕐</div>
+        <div class="benefit-title">24時間、代わりに説明してくれる</div>
+        <div class="benefit-body">夜間・休日の問い合わせもサイトが対応。「施工事例を見て決めました」というお客さんが自分で調べて納得した状態で来てくれます。</div>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="benefit-icon">✅</div>
+        <div class="benefit-title">クオリティの高い問い合わせだけ来る</div>
+        <div class="benefit-body">料金感・対応エリア・得意な工事をあらかじめ伝えることで、的外れな問い合わせが減り、受注につながる相談だけ届くようになります。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WORKS -->
 <section id="works">
   <div class="container">
     <p class="sec-label">Works</p>
     <h2 class="sec-title">制作事例・デモサイト</h2>
-    <p class="sec-sub">「こんなサイトが作れます」という制作デモです。<br>業種に合わせたデザインをゼロからご提案します。</p>
+    <p class="sec-sub">現場系・施工業者向けのデモサイトです。<br>「このサイトがあれば電話しなくていいな」と思ってもらえる情報設計を意識しています。</p>
 
     <div class="works-grid">
       <!-- 板金塗装 -->
@@ -719,8 +777,9 @@
         <div class="about-role">Web Design / Fukuoka</div>
         <p class="about-text">
           福岡を拠点に活動するウェブデザイナーです。<br>
-          地元の中小企業・個人店を中心に、「集客につながるホームページ」の制作を専門にしています。<br><br>
-          "引き立てる"というコンセプトのもと、主役はあくまでお客さまのビジネス。<br>技術的なことはすべてお任せください。打ち合わせから公開まで、わかりやすい言葉でご説明しながら進めます。
+          板金塗装・外壁塗装・整骨院など、現場で動くブルーワーカーのお店を専門にサポートしています。<br><br>
+          ホームページの目的は集客だけじゃない。<br>「問い合わせ対応の手間を減らして、本業に集中できる時間を増やす」——そのために作ります。<br><br>
+          主役はあくまでお客さまのビジネス。技術的なことはすべてお任せください。
         </p>
         <div class="about-skills">
           <span class="skill">HTML / CSS</span>
