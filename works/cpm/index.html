@@ -97,7 +97,7 @@
       flex-direction: column;
     }
 
-    /* ビフォーアフター疑似表示 */
+    /* ビフォーアフター */
     .before-after {
       flex: 1;
       position: relative;
@@ -111,27 +111,25 @@
       grid-template-columns: 1fr 1fr;
     }
     .ba-before {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
     }
     .ba-after {
-      background: linear-gradient(135deg, #0d1b2e 0%, #162236 100%);
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
     }
-    /* 傷のある車の擬似グラフィック */
-    .car-graphic {
-      width: 200px;
-      height: 80px;
-      position: relative;
-      opacity: 0.25;
+    /* 実写背景画像 */
+    .ba-img {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=960&q=80') center/cover no-repeat;
     }
-    .car-graphic svg { width: 100%; height: 100%; }
+    .ba-img-before {
+      filter: grayscale(0.85) brightness(0.42) contrast(1.15);
+    }
+    .ba-img-after {
+      filter: brightness(1.06) saturate(1.15);
+    }
 
     .ba-label {
       position: absolute;
@@ -661,9 +659,6 @@
     <span class="h-logo-sub">板金塗装 / 糟屋郡志免町</span>
   </div>
   <div class="h-right">
-    <a href="#line" class="h-line-btn">
-      <span style="font-size:16px">💬</span> LINEで相談
-    </a>
     <div>
       <a href="tel:0925160603" class="h-tel-link">092-516-0603</a>
       <span class="h-tel-sub">受付 8:00–17:00</span>
@@ -674,23 +669,19 @@
 <!-- HERO -->
 <section class="hero" style="padding:0 0 0 0">
   <div class="before-after">
-    <!-- BEFORE side -->
+    <!-- BEFORE / AFTER 実写 -->
     <div class="ba-bg">
       <div class="ba-before">
+        <div class="ba-img ba-img-before"></div>
         <span class="ba-label">BEFORE</span>
-        <div style="text-align:center; color:rgba(255,255,255,0.15)">
-          <div style="font-size:80px; line-height:1">🚗</div>
-          <!-- キズの表現 -->
-          <div style="position:absolute; top:40%; left:30%; width:60px; height:4px; background:rgba(255,255,255,0.25); transform:rotate(-15deg); border-radius:2px;"></div>
-          <div style="position:absolute; top:50%; left:25%; width:40px; height:3px; background:rgba(255,255,255,0.15); transform:rotate(10deg); border-radius:2px;"></div>
-          <div style="position:absolute; top:55%; left:40%; width:30px; height:2px; background:rgba(255,255,255,0.2); transform:rotate(-5deg); border-radius:2px;"></div>
-        </div>
+        <!-- キズの表現 -->
+        <div style="position:absolute; top:42%; left:22%; width:90px; height:5px; background:rgba(255,255,255,0.35); transform:rotate(-18deg); border-radius:2px; z-index:2;"></div>
+        <div style="position:absolute; top:52%; left:18%; width:60px; height:3px; background:rgba(255,255,255,0.25); transform:rotate(9deg); border-radius:2px; z-index:2;"></div>
+        <div style="position:absolute; top:58%; left:35%; width:45px; height:2px; background:rgba(255,255,255,0.3); transform:rotate(-6deg); border-radius:2px; z-index:2;"></div>
       </div>
       <div class="ba-after">
+        <div class="ba-img ba-img-after"></div>
         <span class="ba-label">AFTER</span>
-        <div style="text-align:center; color:rgba(255,255,255,0.35)">
-          <div style="font-size:80px; line-height:1">🚗</div>
-        </div>
       </div>
     </div>
     <!-- 中心線 -->
@@ -980,13 +971,12 @@
 <!-- CTA BAND -->
 <div class="cta-band">
   <h2>まずは、気軽にご相談ください。</h2>
-  <p>見積もり無料・相談無料。電話・LINE・フォームからどうぞ。</p>
+  <p>見積もり無料・相談無料。お電話またはフォームからどうぞ。</p>
   <div class="cta-buttons">
     <a href="tel:0925160603" class="cta-tel">📞 092-516-0603</a>
-    <a href="#line" class="cta-line">💬 LINEで相談</a>
     <a href="#contact" class="cta-form">📝 フォームで相談</a>
   </div>
-  <p class="cta-note">受付時間 8:00〜17:00（時間外はフォーム・LINEへ）</p>
+  <p class="cta-note">受付時間 8:00〜17:00（時間外はフォームへ）</p>
 </div>
 
 <!-- ACCESS -->
