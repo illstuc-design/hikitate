@@ -296,7 +296,7 @@
     #service { background: #fff; padding: 60px 24px; }
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1px;
       background: #e8e8e8;
       border: 1px solid #e8e8e8;
@@ -326,6 +326,19 @@
       color: #888;
       line-height: 1.7;
       font-weight: 300;
+    }
+    .service-item-link {
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+    .service-item-link:hover { background: #fff8f8; }
+    .service-link-text {
+      font-size: 11px;
+      color: var(--red);
+      font-weight: 700;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
     }
     @media (max-width: 680px) {
       .service-grid { grid-template-columns: repeat(2, 1fr); }
@@ -786,6 +799,12 @@
         <div class="service-name">AIG保険<br>代理店</div>
         <div class="service-desc">保険修理の手続きを<br>ワンストップで代行</div>
       </div>
+      <a href="usedcar/" class="service-item service-item-link fade-in">
+        <div class="service-label">SERVICE 05</div>
+        <div class="service-name">中古車販売</div>
+        <div class="service-desc">厳選した良質な中古車を<br>お手頃価格で販売</div>
+        <div class="service-link-text">在庫を見る →</div>
+      </a>
     </div>
   </div>
 </section>
@@ -1106,6 +1125,7 @@
             <option>事故修理</option>
             <option>全塗装・色変え</option>
             <option>外車・輸入車の修理</option>
+            <option>中古車について</option>
             <option>その他</option>
           </select>
         </div>

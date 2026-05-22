@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中古車販売｜C・P・M 志免町</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d1b2e;
+      --navy2: #162236;
+      --red:   #c0392b;
+      --red2:  #e74c3c;
+      --gray:  #f4f5f7;
+      --mid:   #888;
+      --dark:  #1a1a1a;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: #fff;
+      color: var(--dark);
+    }
+
+    /* ===== FLOATING TEL (mobile) ===== */
+    .float-tel {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--red);
+      padding: 14px;
+      text-align: center;
+    }
+    .float-tel a {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+    }
+    @media (max-width: 680px) { .float-tel { display: block; } }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 62px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .h-left { display: flex; align-items: center; gap: 20px; }
+    .h-logo-main {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #fff;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+    }
+    .h-logo-sub { font-size: 10px; color: rgba(255,255,255,0.4); display: block; margin-top: 2px; letter-spacing: 0.1em; }
+    .h-back {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .h-back:hover { color: #fff; }
+    .h-right { display: flex; align-items: center; gap: 16px; }
+    .h-tel-link {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .h-tel-sub { font-size: 9px; color: rgba(255,255,255,0.4); display: block; text-align: center; margin-top: 2px; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding-top: 62px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1280&h=720&fit=crop');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 40px 48px;
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-content .page-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: var(--red);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hero-content h1 {
+      font-size: clamp(26px, 4vw, 46px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .hero-content h1 em { font-style: normal; color: #ff6b6b; }
+    .hero-content p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ===== 共通 ===== */
+    .container { max-width: 960px; margin: 0 auto; }
+    section { padding: 80px 24px; }
+    .section-en {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: var(--red);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+
+    /* ===== VEHICLE GRID ===== */
+    #stock { background: var(--gray); }
+    .vehicle-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .vehicle-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .vehicle-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+    .vehicle-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .vehicle-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      gap: 6px;
+    }
+    .vehicle-badge span {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .badge-shaken { background: #27ae60; color: #fff; }
+    .badge-hosho { background: #2980b9; color: #fff; }
+    .badge-new { background: var(--red); color: #fff; }
+    .vehicle-info { padding: 20px; }
+    .vehicle-name {
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .vehicle-spec {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .vehicle-spec span {
+      font-size: 12px;
+      color: #888;
+      font-weight: 300;
+    }
+    .vehicle-price {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+    }
+    .vehicle-price-unit {
+      font-size: 13px;
+      font-weight: 300;
+      color: #aaa;
+      margin-left: 2px;
+    }
+    .vehicle-price-tax {
+      font-size: 11px;
+      color: #bbb;
+      font-weight: 300;
+      margin-top: 4px;
+    }
+
+    /* ===== WHY ===== */
+    #why { background: #fff; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .why-card {
+      text-align: center;
+      padding: 32px 20px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      transition: box-shadow 0.2s;
+    }
+    .why-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+    .why-icon { font-size: 36px; margin-bottom: 16px; }
+    .why-title { font-size: 15px; font-weight: 900; margin-bottom: 10px; }
+    .why-desc { font-size: 13px; color: #666; line-height: 1.8; font-weight: 300; }
+
+    /* ===== NOTE ===== */
+    .stock-note {
+      text-align: center;
+      margin-top: 40px;
+      padding: 24px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #eee;
+    }
+    .stock-note p {
+      font-size: 13px;
+      color: #888;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .stock-note strong { color: var(--dark); font-weight: 700; }
+
+    /* ===== CTA BAND ===== */
+    .cta-band {
+      background: var(--navy);
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .cta-band p { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 32px; font-weight: 300; }
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-tel {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: #fff;
+      text-decoration: none;
+      padding: 18px 36px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 20px;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+    }
+    .cta-tel:hover { opacity: 0.85; }
+    .cta-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      padding: 18px 28px;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+    .cta-back:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .cta-note { margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.3); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0a1422;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.2em;
+      margin-bottom: 8px;
+    }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.18); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .vehicle-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .hero-content { padding: 60px 20px 36px; }
+      header { padding: 0 16px; }
+    }
+
+    /* ===== FADE ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- FLOAT TEL (mobile) -->
+<div class="float-tel">
+  <a href="tel:0925160603">092-516-0603</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="h-left">
+    <div>
+      <a href="../" class="h-logo-main">C · P · M</a>
+      <span class="h-logo-sub">中古車販売</span>
+    </div>
+    <a href="../" class="h-back">← トップページ</a>
+  </div>
+  <div class="h-right">
+    <div>
+      <a href="tel:0925160603" class="h-tel-link">092-516-0603</a>
+      <span class="h-tel-sub">受付 8:00-17:00</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="page-label">Used Car</div>
+    <h1>厳選した中古車を、<br><em>安心価格</em>で。</h1>
+    <p>板金のプロが目利きした良質な中古車を取り揃えています。<br>購入後の整備・板金・保険もワンストップで対応します。</p>
+  </div>
+</section>
+
+<!-- STOCK -->
+<section id="stock">
+  <div class="container">
+    <p class="section-en">Stock</p>
+    <h2 class="section-title fade-in">在庫車両</h2>
+    <p class="section-sub fade-in">常時数台の良質な中古車をご用意しています。<br>掲載以外の車両もお探しできますので、お気軽にご相談ください。</p>
+
+    <div class="vehicle-grid">
+      <!-- Car 1 -->
+      <div class="vehicle-card fade-in">
+        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
+          <div class="vehicle-badge">
+            <span class="badge-shaken">車検付き</span>
+            <span class="badge-hosho">保証付き</span>
+          </div>
+        </div>
+        <div class="vehicle-info">
+          <div class="vehicle-name">トヨタ アクア S</div>
+          <div class="vehicle-spec">
+            <span>2020年式</span>
+            <span>3.2万km</span>
+            <span>ホワイト</span>
+          </div>
+          <div class="vehicle-price">¥980,000<span class="vehicle-price-unit"></span></div>
+          <div class="vehicle-price-tax">税込・諸費用別</div>
+        </div>
+      </div>
+
+      <!-- Car 2 -->
+      <div class="vehicle-card fade-in">
+        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
+          <div class="vehicle-badge">
+            <span class="badge-shaken">車検付き</span>
+            <span class="badge-new">NEW</span>
+          </div>
+        </div>
+        <div class="vehicle-info">
+          <div class="vehicle-name">ホンダ N-BOX カスタム</div>
+          <div class="vehicle-spec">
+            <span>2021年式</span>
+            <span>1.8万km</span>
+            <span>ブラック</span>
+          </div>
+          <div class="vehicle-price">¥1,280,000<span class="vehicle-price-unit"></span></div>
+          <div class="vehicle-price-tax">税込・諸費用別</div>
+        </div>
+      </div>
+
+      <!-- Car 3 -->
+      <div class="vehicle-card fade-in">
+        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
+          <div class="vehicle-badge">
+            <span class="badge-hosho">保証付き</span>
+          </div>
+        </div>
+        <div class="vehicle-info">
+          <div class="vehicle-name">スズキ ハスラー G</div>
+          <div class="vehicle-spec">
+            <span>2019年式</span>
+            <span>4.5万km</span>
+            <span>イエロー</span>
+          </div>
+          <div class="vehicle-price">¥850,000<span class="vehicle-price-unit"></span></div>
+          <div class="vehicle-price-tax">税込・諸費用別</div>
+        </div>
+      </div>
+
+      <!-- Car 4 -->
+      <div class="vehicle-card fade-in">
+        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
+          <div class="vehicle-badge">
+            <span class="badge-shaken">車検付き</span>
+            <span class="badge-hosho">保証付き</span>
+          </div>
+        </div>
+        <div class="vehicle-info">
+          <div class="vehicle-name">ダイハツ タント X</div>
+          <div class="vehicle-spec">
+            <span>2020年式</span>
+            <span>2.7万km</span>
+            <span>シルバー</span>
+          </div>
+          <div class="vehicle-price">¥780,000<span class="vehicle-price-unit"></span></div>
+          <div class="vehicle-price-tax">税込・諸費用別</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-note fade-in">
+      <p><strong>掲載以外の車両もお探しします。</strong><br>ご希望の車種・予算をお伝えいただければ、仕入れネットワークからお探しします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <p class="section-en">Why C・P・M</p>
+    <h2 class="section-title fade-in">板金屋で買うメリット</h2>
+    <p class="section-sub fade-in">板金・整備のプロだからこそできる、安心の中古車販売です。</p>
+
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">🔍</div>
+        <div class="why-title">プロの目利きで仕入れ</div>
+        <div class="why-desc">板金のプロがボディの状態を見極めて仕入れ。修復歴・事故歴を見逃しません。安心して乗れる車だけを厳選しています。</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🔧</div>
+        <div class="why-title">購入後もワンストップ</div>
+        <div class="why-desc">車検・整備・板金修理、すべてここで完結。購入後に別のお店を探す必要がありません。長く安心して乗り続けられます。</div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">🛡</div>
+        <div class="why-title">保険もその場で</div>
+        <div class="why-desc">AIG損害保険の正規代理店だから、購入と同時に保険加入も可能。万が一の事故修理も保険手続きもワンストップで対応します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>お気軽にお問い合わせください。</h2>
+  <p>在庫の確認・ご希望車両のご相談など、お電話1本でOKです。</p>
+  <div class="cta-buttons">
+    <a href="tel:0925160603" class="cta-tel">092-516-0603</a>
+    <a href="../#contact" class="cta-back">メールで問い合わせる</a>
+  </div>
+  <p class="cta-note">受付時間 8:00〜17:00（時間外はメールフォームへ）</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">C · P · M</div>
+  <div class="footer-copy">&copy; C・P・M　福岡県糟屋郡志免町南里２丁目１１−２１　Tel: 092-516-0603</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
