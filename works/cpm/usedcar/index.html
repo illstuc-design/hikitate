@@ -162,77 +162,50 @@
       margin-bottom: 48px;
     }
 
-    /* ===== VEHICLE GRID ===== */
+    /* ===== INQUIRY BOX ===== */
     #stock { background: var(--gray); }
-    .vehicle-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .vehicle-card {
+    .inquiry-box {
+      max-width: 640px;
+      margin: 0 auto;
       background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 16px;
+      padding: 48px 40px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
-    .vehicle-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
-    .vehicle-img {
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-    .vehicle-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      display: flex;
-      gap: 6px;
-    }
-    .vehicle-badge span {
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 100px;
-    }
-    .badge-shaken { background: #27ae60; color: #fff; }
-    .badge-hosho { background: #2980b9; color: #fff; }
-    .badge-new { background: var(--red); color: #fff; }
-    .vehicle-info { padding: 20px; }
-    .vehicle-name {
-      font-size: 16px;
+    .inquiry-box-icon { font-size: 48px; margin-bottom: 20px; }
+    .inquiry-box h3 {
+      font-size: 20px;
       font-weight: 900;
-      margin-bottom: 8px;
-    }
-    .vehicle-spec {
-      display: flex;
-      gap: 16px;
       margin-bottom: 12px;
     }
-    .vehicle-spec span {
-      font-size: 12px;
-      color: #888;
+    .inquiry-box p {
+      font-size: 14px;
+      color: #666;
       font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 28px;
     }
-    .vehicle-price {
+    .inquiry-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 20px;
       font-family: 'Oswald', sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--red);
-      line-height: 1;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
     }
-    .vehicle-price-unit {
-      font-size: 13px;
-      font-weight: 300;
+    .inquiry-tel:hover { opacity: 0.85; }
+    .inquiry-note {
+      margin-top: 12px;
+      font-size: 12px;
       color: #aaa;
-      margin-left: 2px;
-    }
-    .vehicle-price-tax {
-      font-size: 11px;
-      color: #bbb;
-      font-weight: 300;
-      margin-top: 4px;
     }
 
     /* ===== WHY ===== */
@@ -253,23 +226,6 @@
     .why-icon { font-size: 36px; margin-bottom: 16px; }
     .why-title { font-size: 15px; font-weight: 900; margin-bottom: 10px; }
     .why-desc { font-size: 13px; color: #666; line-height: 1.8; font-weight: 300; }
-
-    /* ===== NOTE ===== */
-    .stock-note {
-      text-align: center;
-      margin-top: 40px;
-      padding: 24px;
-      background: #fff;
-      border-radius: 12px;
-      border: 1px solid #eee;
-    }
-    .stock-note p {
-      font-size: 13px;
-      color: #888;
-      font-weight: 300;
-      line-height: 1.8;
-    }
-    .stock-note strong { color: var(--dark); font-weight: 700; }
 
     /* ===== CTA BAND ===== */
     .cta-band {
@@ -391,93 +347,16 @@
 <!-- STOCK -->
 <section id="stock">
   <div class="container">
-    <p class="section-en">Stock</p>
-    <h2 class="section-title fade-in">在庫車両</h2>
-    <p class="section-sub fade-in">常時数台の良質な中古車をご用意しています。<br>掲載以外の車両もお探しできますので、お気軽にご相談ください。</p>
+    <p class="section-en">Used Car</p>
+    <h2 class="section-title fade-in">中古車のご相談</h2>
+    <p class="section-sub fade-in">ご希望の車種・予算をお伝えいただければ、仕入れネットワークからお探しします。</p>
 
-    <div class="vehicle-grid">
-      <!-- Car 1 -->
-      <div class="vehicle-card fade-in">
-        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
-          <div class="vehicle-badge">
-            <span class="badge-shaken">車検付き</span>
-            <span class="badge-hosho">保証付き</span>
-          </div>
-        </div>
-        <div class="vehicle-info">
-          <div class="vehicle-name">トヨタ アクア S</div>
-          <div class="vehicle-spec">
-            <span>2020年式</span>
-            <span>3.2万km</span>
-            <span>ホワイト</span>
-          </div>
-          <div class="vehicle-price">¥980,000<span class="vehicle-price-unit"></span></div>
-          <div class="vehicle-price-tax">税込・諸費用別</div>
-        </div>
-      </div>
-
-      <!-- Car 2 -->
-      <div class="vehicle-card fade-in">
-        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
-          <div class="vehicle-badge">
-            <span class="badge-shaken">車検付き</span>
-            <span class="badge-new">NEW</span>
-          </div>
-        </div>
-        <div class="vehicle-info">
-          <div class="vehicle-name">ホンダ N-BOX カスタム</div>
-          <div class="vehicle-spec">
-            <span>2021年式</span>
-            <span>1.8万km</span>
-            <span>ブラック</span>
-          </div>
-          <div class="vehicle-price">¥1,280,000<span class="vehicle-price-unit"></span></div>
-          <div class="vehicle-price-tax">税込・諸費用別</div>
-        </div>
-      </div>
-
-      <!-- Car 3 -->
-      <div class="vehicle-card fade-in">
-        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
-          <div class="vehicle-badge">
-            <span class="badge-hosho">保証付き</span>
-          </div>
-        </div>
-        <div class="vehicle-info">
-          <div class="vehicle-name">スズキ ハスラー G</div>
-          <div class="vehicle-spec">
-            <span>2019年式</span>
-            <span>4.5万km</span>
-            <span>イエロー</span>
-          </div>
-          <div class="vehicle-price">¥850,000<span class="vehicle-price-unit"></span></div>
-          <div class="vehicle-price-tax">税込・諸費用別</div>
-        </div>
-      </div>
-
-      <!-- Car 4 -->
-      <div class="vehicle-card fade-in">
-        <div class="vehicle-img" style="background-image:url('https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop')">
-          <div class="vehicle-badge">
-            <span class="badge-shaken">車検付き</span>
-            <span class="badge-hosho">保証付き</span>
-          </div>
-        </div>
-        <div class="vehicle-info">
-          <div class="vehicle-name">ダイハツ タント X</div>
-          <div class="vehicle-spec">
-            <span>2020年式</span>
-            <span>2.7万km</span>
-            <span>シルバー</span>
-          </div>
-          <div class="vehicle-price">¥780,000<span class="vehicle-price-unit"></span></div>
-          <div class="vehicle-price-tax">税込・諸費用別</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="stock-note fade-in">
-      <p><strong>掲載以外の車両もお探しします。</strong><br>ご希望の車種・予算をお伝えいただければ、仕入れネットワークからお探しします。</p>
+    <div class="inquiry-box fade-in">
+      <div class="inquiry-box-icon">🚗</div>
+      <h3>お気軽にご相談ください</h3>
+      <p>「こんな車を探してる」「予算はこのくらい」など、<br>ざっくりしたご相談でも大歓迎です。<br>板金のプロが、状態の良い車をお探しします。</p>
+      <a href="tel:0925160603" class="inquiry-tel">092-516-0603</a>
+      <div class="inquiry-note">受付 8:00〜17:00（時間外はメールフォームへ）</div>
     </div>
   </div>
 </section>
