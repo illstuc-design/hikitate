@@ -1,1330 +1,1132 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>C・P・M｜板金塗装・車検整備｜福岡県志免町</title>
-<meta name="description" content="福岡県志免町の板金塗装・車検整備・中古車販売「C・P・M」。キズ・ヘコミの修理から外車・輸入車まで。AIG損害保険正規代理店。無料見積もり受付中。" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0E0F12;
-    --ink-2:#1A1C20;
-    --ink-3:#2A2D33;
-    --paper:#F5F2EC;
-    --paper-2:#EAE6DD;
-    --line:#D6D1C5;
-    --muted:#6E6A62;
-    --accent: oklch(0.62 0.18 35);
-    --accent-2: oklch(0.55 0.19 30);
-    --accent-soft: oklch(0.92 0.05 40);
-    --ok: oklch(0.62 0.14 150);
-    --shadow: 0 12px 40px -20px rgba(14,15,18,.35);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:"Noto Sans JP","Zen Kaku Gothic New",system-ui,sans-serif;
-    background:var(--paper);
-    color:var(--ink);
-    line-height:1.75;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  img{max-width:100%;display:block}
-  a{color:inherit;text-decoration:none}
-  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C・P・M｜板金塗装・車検・整備｜福岡県志免町</title>
+  <meta name="description" content="福岡県志免町の板金塗装・車検整備・中古車販売「C・P・M」。キズ・ヘコミの修理から外車・輸入車まで。AIG損害保険正規代理店。無料見積もり受付中。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:  #111111;
+      --black2: #1a1a1a;
+      --red:    #c0392b;
+      --red2:   #a93226;
+      --gray-bg:#f4f5f7;
+      --gray:   #888888;
+      --border: #e0e0e0;
+      --white:  #ffffff;
+      --line:   #06c755;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
 
-  .display{font-family:"Barlow Condensed",sans-serif;font-weight:700;letter-spacing:.02em}
-  .jp-display{font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;font-weight:900;letter-spacing:.02em}
-  .mono{font-family:"Barlow Condensed",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+    /* ========== HEADER ========== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      height: 72px;
+    }
+    .h-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      gap: 28px;
+    }
+    .h-logo { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
+    .h-logo-main {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--black);
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+    .h-logo-sub { font-size: 10px; color: var(--gray); letter-spacing: 0.04em; }
 
-  .container{max-width:1240px;margin:0 auto;padding:0 32px}
-  @media (max-width:640px){ .container{padding:0 20px} }
+    .h-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex: 1;
+    }
+    .h-nav a {
+      font-size: 13px;
+      color: var(--black);
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .h-nav a:hover { color: var(--red); }
 
-  /* =========== HEADER =========== */
-  .header{
-    position:fixed;inset:0 0 auto 0;z-index:100;
-    background:rgba(14,15,18,.92);
-    backdrop-filter: blur(10px);
-    border-bottom:1px solid rgba(255,255,255,.06);
-    color:#fff;
-    transition:padding .3s ease;
-  }
-  .header-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    height:72px;
-  }
-  .logo{
-    display:flex;align-items:center;gap:10px;
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:800;font-size:26px;letter-spacing:.16em;
-    white-space:nowrap;
-  }
-  .logo-mark{
-    width:34px;height:34px;display:grid;place-items:center;
-    border:1.5px solid var(--accent);color:var(--accent);
-    font-size:18px;font-weight:800;letter-spacing:0;
-    transform:rotate(-2deg);
-  }
-  .header-nav{display:flex;align-items:center;gap:28px}
-  .header-nav a{font-size:13px;color:rgba(255,255,255,.7);transition:color .2s}
-  .header-nav a:hover{color:#fff}
-  .header-tel{
-    display:flex;align-items:center;gap:10px;
-    padding:10px 16px;border:1px solid rgba(255,255,255,.15);
-    border-radius:2px;transition:all .2s;
-    white-space:nowrap;
-  }
-  .header-tel .num{white-space:nowrap}
-  .header-tel:hover{border-color:var(--accent);background:rgba(220,80,40,.08)}
-  .header-tel .num{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:22px;letter-spacing:.04em}
-  .header-tel .lbl{font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.15em}
-  @media (max-width:820px){
-    .header-nav{display:none}
-    .header-tel .lbl{display:none}
-    .header-tel{padding:8px 12px}
-    .header-tel .num{font-size:18px}
-  }
+    .h-contact {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .h-tel-block { text-align: right; }
+    .h-tel-label { font-size: 10px; color: var(--gray); margin-bottom: 2px; }
+    .h-tel-num {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1;
+    }
+    .h-tel-hours { font-size: 10px; color: var(--gray); margin-top: 2px; }
 
-  /* =========== HERO =========== */
-  .hero{
-    position:relative;
-    min-height:100vh;
-    background:var(--ink);
-    color:#fff;
-    overflow:hidden;
-    padding-top:72px;
-  }
-  .hero-bg{
-    position:absolute;inset:0;
-    background-image:
-      linear-gradient(110deg, rgba(14,15,18,.95) 0%, rgba(14,15,18,.65) 45%, rgba(14,15,18,.3) 100%),
-      url('https://images.pexels.com/photos/3807329/pexels-photo-3807329.jpeg?auto=compress&cs=tinysrgb&w=1600');
-    background-size:cover;background-position:center;
-  }
-  .hero-bg::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, transparent 60%, var(--ink) 100%);
-  }
-  .hero-inner{
-    position:relative;z-index:2;
-    display:grid;grid-template-rows:1fr auto;
-    min-height:calc(100vh - 72px);
-    padding:60px 0 0;
-  }
-  .hero-eyebrow{
-    display:inline-flex;align-items:center;gap:14px;
-    font-size:12px;letter-spacing:.25em;color:rgba(255,255,255,.65);
-    margin-bottom:32px;
-    flex-wrap:wrap;
-  }
-  @media (max-width:560px){
-    .hero-eyebrow{font-size:10.5px;letter-spacing:.2em}
-    .hero-eyebrow::before{width:28px}
-  }
-  .hero-eyebrow::before{
-    content:"";width:48px;height:1px;background:var(--accent);
-  }
-  .hero h1{
-    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
-    font-weight:900;
-    font-size: clamp(36px, 6vw, 80px);
-    line-height:1.15;
-    letter-spacing:-.01em;
-    margin-bottom:28px;
-    max-width:16ch;
-    word-break:keep-all;
-    overflow-wrap:break-word;
-  }
-  @media (max-width:1024px){
-    .hero h1{max-width:none;font-size:clamp(34px, 5.4vw, 56px)}
-  }
-  .hero h1 .em{color:var(--accent)}
-  .hero h1 .slash{
-    display:inline-block;color:var(--accent);font-weight:700;margin:0 .08em;
-    transform:translateY(-.06em);
-  }
-  .hero-sub{
-    font-size: clamp(15px, 1.4vw, 18px);
-    color:rgba(255,255,255,.8);
-    max-width:36ch;
-    margin-bottom:44px;
-  }
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:12px;
-    padding:18px 28px;
-    font-weight:700;font-size:15px;
-    border-radius:2px;
-    transition:all .25s ease;
-    border:1.5px solid transparent;
-  }
-  .btn-primary{background:var(--accent);color:#fff}
-  .btn-primary:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 10px 30px -10px rgba(220,80,40,.6)}
-  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
-  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.05)}
-  .btn-dark{background:var(--ink);color:#fff}
-  .btn-dark:hover{background:var(--ink-2)}
-  .btn .arrow{display:inline-block;transition:transform .2s}
-  .btn:hover .arrow{transform:translateX(4px)}
+    .h-line-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--line);
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 6px;
+      transition: opacity .2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+    .h-line-btn:hover { opacity: .87; }
+    .h-line-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .h-line-sub { font-size: 9px; opacity: .75; margin-top: 1px; }
 
-  .hero-stats{
-    position:relative;z-index:2;
-    border-top:1px solid rgba(255,255,255,.12);
-    display:grid;grid-template-columns:repeat(4,1fr);
-    margin-top:80px;
-  }
-  .stat{
-    padding:32px 28px;
-    border-right:1px solid rgba(255,255,255,.08);
-  }
-  .stat:last-child{border-right:0}
-  .stat-num{
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;font-size:44px;line-height:1;
-    color:#fff;display:flex;align-items:baseline;gap:6px;
-  }
-  .stat-num .small{font-size:18px;color:rgba(255,255,255,.6);font-weight:500}
-  .stat-num .accent{color:var(--accent)}
-  .stat-lbl{
-    margin-top:8px;font-size:12px;letter-spacing:.15em;
-    color:rgba(255,255,255,.55);text-transform:uppercase;
-  }
-  @media (max-width:820px){
-    .hero-stats{grid-template-columns:repeat(2,1fr)}
-    .stat{padding:22px 18px}
-    .stat:nth-child(2){border-right:0}
-    .stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.08)}
-    .stat-num{font-size:32px}
-  }
+    /* ========== HERO ========== */
+    .hero {
+      margin-top: 72px;
+      position: relative;
+      height: 540px;
+      overflow: hidden;
+      background: #111;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center 30%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(0,0,0,.12) 0%,
+        rgba(0,0,0,.50) 45%,
+        rgba(0,0,0,.82) 75%,
+        rgba(0,0,0,.90) 100%
+      );
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1400px;
+      margin: 0 auto;
+      height: calc(100% - 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 0 60px;
+      text-align: right;
+    }
+    .hero h1 {
+      font-weight: 900;
+      font-size: clamp(30px, 3.8vw, 52px);
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    .hero-sub {
+      font-size: clamp(13px, 1.2vw, 16px);
+      color: rgba(255,255,255,.85);
+      line-height: 1.7;
+    }
+    .hero-sub em {
+      font-style: normal;
+      color: var(--red);
+      font-weight: 700;
+    }
 
-  /* =========== SECTION COMMON =========== */
-  section.block{padding:120px 0;position:relative}
-  @media (max-width:820px){ section.block{padding:80px 0} }
+    .hero-svcs {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,.68);
+      backdrop-filter: blur(6px);
+    }
+    .hero-svcs-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+    }
+    .h-svc {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 10px;
+      border-right: 1px solid rgba(255,255,255,.12);
+      transition: background .2s;
+      cursor: default;
+    }
+    .h-svc:last-child { border-right: none; }
+    .h-svc:hover { background: rgba(255,255,255,.07); }
+    .h-svc-icon { width: 32px; height: 32px; color: var(--red); }
+    .h-svc-name { font-size: 12px; color: #fff; font-weight: 500; text-align: center; }
 
-  .sect-head{
-    display:flex;align-items:end;justify-content:space-between;gap:32px;
-    margin-bottom:56px;flex-wrap:wrap;
-  }
-  .sect-eyebrow{
-    display:inline-flex;align-items:center;gap:14px;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:14px;letter-spacing:.3em;color:var(--accent);
-    font-weight:600;margin-bottom:16px;text-transform:uppercase;
-  }
-  .sect-eyebrow .num{
-    display:inline-block;color:var(--muted);font-weight:500;
-  }
-  .sect-eyebrow::before{
-    content:"";width:36px;height:1px;background:var(--accent);
-  }
-  .sect-title{
-    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
-    font-weight:900;
-    font-size: clamp(30px, 4.4vw, 52px);
-    line-height:1.2;letter-spacing:-.01em;
-    max-width:18ch;
-  }
-  .sect-title .em{color:var(--accent)}
-  .sect-lead{
-    max-width:36ch;font-size:15px;color:var(--muted);
-    line-height:1.85;
-  }
+    /* ========== REVIEWS BAR ========== */
+    .rv-bar { background: #111; padding: 18px 0; }
+    .rv-bar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .rv-score-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-right: 20px;
+      border-right: 1px solid rgba(255,255,255,.14);
+      flex-shrink: 0;
+    }
+    .rv-label { font-size: 10px; color: rgba(255,255,255,.45); margin-bottom: 4px; white-space: nowrap; }
+    .rv-stars-row { display: flex; align-items: center; gap: 8px; }
+    .rv-star { font-size: 24px; color: #f5c800; line-height: 1; }
+    .rv-num { font-size: 34px; font-weight: 900; color: #fff; line-height: 1; }
+    .rv-count { font-size: 10px; color: rgba(255,255,255,.4); margin-top: 2px; white-space: nowrap; }
 
-  /* =========== SERVICES =========== */
-  .services{background:var(--paper)}
-  .services-grid{
-    display:grid;grid-template-columns:repeat(5,1fr);
-    border-top:1px solid var(--line);
-    border-left:1px solid var(--line);
-  }
-  .svc{
-    padding:36px 28px 32px;
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    background:var(--paper);
-    transition:background .2s;
-    position:relative;
-    min-height:260px;
-    display:flex;flex-direction:column;
-  }
-  .svc:hover{background:#fff}
-  .svc-no{
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:14px;letter-spacing:.2em;color:var(--accent);
-    font-weight:700;margin-bottom:24px;
-  }
-  .svc-icon{
-    width:48px;height:48px;margin-bottom:20px;
-    color:var(--ink);
-  }
-  .svc-name{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:900;font-size:20px;line-height:1.4;
-    margin-bottom:12px;
-  }
-  .svc-desc{font-size:13.5px;color:var(--muted);line-height:1.8}
-  @media (max-width:1024px){
-    .services-grid{grid-template-columns:repeat(2,1fr)}
-    .svc{min-height:auto}
-  }
-  @media (max-width:520px){
-    .services-grid{grid-template-columns:1fr}
-  }
+    .rv-cards {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+    .rv-card {
+      flex: 1;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 6px;
+      padding: 10px 12px;
+      min-width: 0;
+    }
+    .rv-card-stars { color: #f5c800; font-size: 11px; letter-spacing: 1px; margin-bottom: 4px; }
+    .rv-card-text {
+      font-size: 11px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
-  /* =========== REASONS =========== */
-  .reasons{background:var(--ink);color:#fff}
-  .reasons .sect-eyebrow{color:var(--accent)}
-  .reasons .sect-title{color:#fff}
-  .reasons .sect-lead{color:rgba(255,255,255,.6)}
-  .reasons-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.08);
-  }
-  .reason{
-    background:var(--ink);
-    padding:40px 32px;
-    transition:background .3s;
-    position:relative;
-  }
-  .reason:hover{background:var(--ink-2)}
-  .reason-no{
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:64px;font-weight:700;line-height:1;
-    color:var(--accent);margin-bottom:20px;display:block;
-  }
-  .reason h3{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:900;font-size:20px;line-height:1.4;
-    margin-bottom:14px;color:#fff;
-  }
-  .reason p{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.85}
-  @media (max-width:1024px){.reasons-grid{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:600px){.reasons-grid{grid-template-columns:1fr}}
+    .rv-link {
+      flex-shrink: 0;
+      padding-left: 20px;
+      border-left: 1px solid rgba(255,255,255,.14);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: rgba(255,255,255,.4);
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .rv-link:hover { color: #fff; }
 
-  /* =========== PRICE =========== */
-  .price-wrap{
-    border:1px solid var(--line);
-    background:#fff;
-    overflow:hidden;
-  }
-  .price-table{
-    width:100%;border-collapse:collapse;
-    font-size:14.5px;
-  }
-  .price-table thead{
-    background:var(--ink);color:#fff;
-  }
-  .price-table th{
-    text-align:left;
-    padding:18px 24px;
-    font-weight:500;
-    font-size:12px;letter-spacing:.2em;
-    text-transform:uppercase;
-    font-family:"Barlow Condensed",sans-serif;
-    color:rgba(255,255,255,.85);
-  }
-  .price-table td{
-    padding:24px;
-    border-top:1px solid var(--line);
-    vertical-align:top;
-  }
-  .price-table tbody tr{transition:background .2s}
-  .price-table tbody tr:hover{background:var(--paper)}
-  .price-kind{font-weight:700;font-size:15px;white-space:nowrap}
-  .price-amt{
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;font-size:24px;color:var(--accent);
-    white-space:nowrap;
-  }
-  .price-note-cell{
-    font-size:12px;color:var(--muted);
-  }
-  .price-pill{
-    display:inline-block;
-    font-size:11px;font-weight:700;
-    padding:4px 10px;
-    border-radius:2px;
-    letter-spacing:.05em;
-  }
-  .pill-day{background:var(--accent-soft);color:var(--accent-2)}
-  .pill-insure{background:#E8F0FE;color:#2A5FB8}
-  .pill-call{background:#EFEDE5;color:var(--muted)}
-  .price-foot{
-    padding:18px 24px;background:var(--paper);
-    font-size:12.5px;color:var(--muted);
-    border-top:1px solid var(--line);
-  }
-  @media (max-width:720px){
-    .price-table thead{display:none}
-    .price-table, .price-table tbody, .price-table tr, .price-table td{display:block;width:100%}
-    .price-table tr{border-top:1px solid var(--line);padding:18px 20px}
-    .price-table td{border-top:0;padding:6px 0}
-    .price-table tr:first-child{border-top:0}
-    .price-kind{font-size:16px;margin-bottom:6px}
-    .price-amt{font-size:22px}
-  }
+    /* ========== SERVICES SECTION ========== */
+    .svc-section { padding: 56px 0; }
+    .svc-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 270px;
+      gap: 36px;
+      align-items: start;
+    }
+    .sect-head { font-size: 20px; font-weight: 900; margin-bottom: 20px; }
 
-  /* =========== CASES =========== */
-  .cases{background:var(--paper-2)}
-  .cases-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:32px;
-  }
-  .case{
-    background:#fff;
-    border-radius:2px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    display:flex;flex-direction:column;
-  }
-  .case-img-wrap{
-    position:relative;display:grid;grid-template-columns:1fr 1fr;
-    background:#000;
-  }
-  .case-img{
-    aspect-ratio:4/3;background-size:cover;background-position:center;
-    position:relative;
-  }
-  .case-img .tag{
-    position:absolute;top:14px;left:14px;
-    background:rgba(14,15,18,.85);color:#fff;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:11px;letter-spacing:.2em;
-    padding:5px 10px;font-weight:600;
-  }
-  .case-img.after .tag{background:var(--accent)}
-  .case-divide{
-    position:absolute;top:0;bottom:0;left:50%;
-    width:2px;background:#fff;transform:translateX(-50%);
-    z-index:2;
-  }
-  .case-body{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column}
-  .case-meta{
-    display:flex;justify-content:space-between;align-items:baseline;
-    margin-bottom:12px;gap:16px;
-  }
-  .case-name{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1.4}
-  .case-price{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px;color:var(--accent);white-space:nowrap}
-  .case-desc{font-size:13.5px;color:var(--muted);line-height:1.85}
-  @media (max-width:720px){
-    .cases-grid{grid-template-columns:1fr;gap:24px}
-  }
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+    }
+    .svc-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .svc-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .svc-card:hover img { transform: scale(1.05); }
+    .svc-card-name {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.7));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 28px 12px 12px;
+      text-align: center;
+    }
 
-  /* =========== REVIEWS =========== */
-  .reviews{background:var(--paper)}
-  .reviews-rating{
-    display:flex;align-items:center;gap:28px;
-    padding:32px 36px;background:#fff;
-    border:1px solid var(--line);
-    margin-bottom:40px;
-    flex-wrap:wrap;
-  }
-  .rating-score{
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;font-size:64px;line-height:.9;
-    color:var(--ink);display:flex;align-items:baseline;gap:8px;
-  }
-  .rating-score .out{font-size:18px;color:var(--muted);font-weight:500}
-  .rating-stars{display:flex;gap:2px;color:#F5B400;font-size:22px;line-height:1}
-  .rating-meta{font-size:13px;color:var(--muted)}
-  .rating-meta strong{color:var(--ink);font-weight:700}
-  .rating-google{
-    margin-left:auto;
-    display:flex;align-items:center;gap:10px;
-    font-size:12px;color:var(--muted);
-  }
-  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .review{
-    background:#fff;padding:32px 28px;
-    border:1px solid var(--line);
-    display:flex;flex-direction:column;gap:18px;
-    position:relative;
-  }
-  .review::before{
-    content:"\201C";
-    position:absolute;top:8px;right:24px;
-    font-family:"Barlow Condensed",serif;
-    font-size:88px;line-height:1;color:var(--accent-soft);
-    z-index:0;
-  }
-  .review-stars{display:flex;gap:2px;color:#F5B400;font-size:14px;line-height:1;z-index:1}
-  .review-text{font-size:14px;line-height:1.9;color:var(--ink);z-index:1;position:relative}
-  .review-author{
-    display:flex;align-items:center;gap:12px;
-    margin-top:auto;padding-top:18px;
-    border-top:1px solid var(--line);
-    font-size:12px;color:var(--muted);
-  }
-  .review-avatar{
-    width:36px;height:36px;border-radius:50%;
-    background:var(--ink);color:#fff;
-    display:grid;place-items:center;
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;font-size:16px;
-  }
-  @media (max-width:900px){.reviews-grid{grid-template-columns:1fr}}
+    /* サイドバー */
+    .sidebar {
+      background: var(--gray-bg);
+      border-radius: 8px;
+      padding: 22px;
+      position: sticky;
+      top: 84px;
+    }
+    .sb-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sb-tel-label { font-size: 11px; color: var(--gray); margin-bottom: 4px; }
+    .sb-tel {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .sb-tel-icon { color: var(--red); }
+    .sb-hours { font-size: 11px; color: var(--gray); margin-bottom: 16px; line-height: 1.6; }
+    .sb-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--line);
+      color: #fff;
+      padding: 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: opacity .2s;
+    }
+    .sb-line:hover { opacity: .87; }
+    .sb-line-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      margin-top: 6px;
+    }
+    .sb-free {
+      margin-top: 14px;
+      padding: 10px;
+      border: 1.5px solid var(--black);
+      border-radius: 6px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all .2s;
+    }
+    .sb-free:hover { background: var(--black); color: #fff; }
 
-  /* =========== CTA =========== */
-  .cta{
-    background:var(--ink);color:#fff;
-    position:relative;overflow:hidden;
-    padding:120px 0;
-  }
-  .cta-bg{
-    position:absolute;inset:0;opacity:.12;
-    background-image:url('https://images.pexels.com/photos/4489732/pexels-photo-4489732.jpeg?auto=compress&cs=tinysrgb&w=1600');
-    background-size:cover;background-position:center;
-    filter:grayscale(1) contrast(1.1);
-  }
-  .cta-inner{position:relative;z-index:2;text-align:center;max-width:780px;margin:0 auto}
-  .cta-eyebrow{
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:14px;letter-spacing:.3em;color:var(--accent);
-    font-weight:600;margin-bottom:20px;text-transform:uppercase;
-  }
-  .cta h2{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:900;font-size:clamp(32px,5vw,56px);
-    line-height:1.25;margin-bottom:20px;
-  }
-  .cta-sub{
-    color:rgba(255,255,255,.7);font-size:16px;
-    margin-bottom:48px;line-height:1.9;
-  }
-  .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-  .btn-tel-big{
-    display:inline-flex;flex-direction:column;align-items:flex-start;
-    gap:4px;padding:20px 32px;
-    background:var(--accent);color:#fff;
-    transition:all .25s;
-  }
-  .btn-tel-big:hover{background:var(--accent-2);transform:translateY(-2px)}
-  .btn-tel-big .num{
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;font-size:32px;letter-spacing:.04em;line-height:1;
-    display:flex;align-items:center;gap:12px;
-  }
-  .btn-tel-big .hour{font-size:11px;letter-spacing:.15em;opacity:.85}
+    /* ========== WORKS SECTION ========== */
+    .works-section {
+      padding: 56px 0;
+      border-top: 1px solid var(--border);
+    }
+    .works-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 180px 1fr 250px;
+      gap: 36px;
+      align-items: start;
+    }
+    .works-title { font-size: 20px; font-weight: 900; margin-bottom: 4px; }
+    .works-sub { font-size: 11px; color: var(--gray); margin-bottom: 20px; font-weight: 400; letter-spacing: .08em; }
+    .works-btn {
+      display: inline-block;
+      border: 1.5px solid var(--black);
+      padding: 9px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 4px;
+      transition: all .2s;
+    }
+    .works-btn:hover { background: var(--black); color: #fff; }
 
-  /* =========== ACCESS =========== */
-  .access{background:var(--paper)}
-  .access-grid{
-    display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start;
-  }
-  .access-info{}
-  .access-name{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:900;font-size:32px;margin-bottom:6px;
-  }
-  .access-tagline{
-    font-family:"Barlow Condensed",sans-serif;
-    color:var(--accent);letter-spacing:.2em;
-    font-size:13px;font-weight:600;margin-bottom:32px;
-    text-transform:uppercase;
-  }
-  .access-table{
-    width:100%;border-top:1px solid var(--line);
-  }
-  .access-table tr{border-bottom:1px solid var(--line)}
-  .access-table th{
-    text-align:left;padding:18px 0;width:130px;
-    font-size:12px;font-weight:700;
-    color:var(--muted);letter-spacing:.1em;
-    vertical-align:top;
-  }
-  .access-table td{
-    padding:18px 0;font-size:14.5px;line-height:1.7;
-    vertical-align:top;
-  }
-  .access-table td .em{
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;font-size:22px;letter-spacing:.04em;
-    color:var(--ink);
-  }
-  .access-map{
-    aspect-ratio:4/3;
-    background:var(--ink-2);
-    background-image:
-      linear-gradient(135deg, rgba(14,15,18,.6), rgba(14,15,18,.85)),
-      url('https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=1200');
-    background-size:cover;background-position:center;
-    border:1px solid var(--line);
-    position:relative;
-    display:flex;align-items:flex-end;
-    padding:32px;
-    color:#fff;
-    overflow:hidden;
-  }
-  .access-map::before{
-    content:"";position:absolute;
-    top:50%;left:50%;width:60px;height:60px;
-    transform:translate(-50%,-100%);
-    background:var(--accent);
-    border-radius:50% 50% 50% 0;
-    transform-origin:bottom;
-    rotate:-45deg;
-    box-shadow:0 8px 24px rgba(0,0,0,.5);
-  }
-  .access-map::after{
-    content:"";position:absolute;
-    top:50%;left:50%;width:14px;height:14px;
-    border-radius:50%;background:#fff;
-    transform:translate(-50%,-160%);
-  }
-  .map-overlay{
-    position:relative;z-index:2;
-    background:rgba(14,15,18,.88);
-    padding:18px 24px;
-    border-left:3px solid var(--accent);
-  }
-  .map-overlay .ttl{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.6);margin-bottom:6px}
-  .map-overlay .addr{font-size:14px;font-weight:500;margin-bottom:12px}
-  .map-link{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:13px;letter-spacing:.15em;font-weight:600;
-    color:var(--accent);
-  }
-  @media (max-width:900px){
-    .access-grid{grid-template-columns:1fr}
-  }
+    .ba-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .ba-pair {}
+    .ba-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .ba-img {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+    .ba-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ba-badge {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      background: rgba(0,0,0,.72);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      letter-spacing: .06em;
+    }
+    .ba-info {
+      padding: 8px 2px 0;
+    }
+    .ba-info-name { font-size: 12px; font-weight: 700; }
+    .ba-info-price { font-size: 13px; font-weight: 900; color: var(--red); }
 
-  /* =========== FORM =========== */
-  .form-sect{background:#fff;border-top:1px solid var(--line)}
-  .form-grid{
-    display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start;
-  }
-  .form-side h2{
-    font-family:"Zen Kaku Gothic New",sans-serif;
-    font-weight:900;font-size:36px;line-height:1.3;margin-bottom:20px;
-  }
-  .form-side p{color:var(--muted);font-size:14.5px;line-height:1.9;margin-bottom:32px}
-  .form-side .check-list{display:flex;flex-direction:column;gap:10px}
-  .check-list li{
-    list-style:none;font-size:13.5px;display:flex;align-items:flex-start;gap:10px;
-    color:var(--ink);
-  }
-  .check-list li::before{
-    content:"";width:16px;height:16px;flex-shrink:0;margin-top:5px;
-    background:var(--accent);
-    clip-path:polygon(20% 50%, 0 70%, 40% 100%, 100% 20%, 80% 0, 40% 60%);
-  }
-  .form{
-    background:var(--paper);
-    padding:40px;
-    border:1px solid var(--line);
-    display:grid;gap:20px;
-  }
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .field{display:flex;flex-direction:column;gap:8px}
-  .field label{
-    font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--ink);
-    display:flex;align-items:center;gap:8px;
-  }
-  .field label .req{
-    background:var(--accent);color:#fff;
-    font-size:10px;padding:2px 6px;border-radius:2px;font-weight:600;letter-spacing:.05em;
-  }
-  .field input, .field select, .field textarea{
-    font-family:inherit;font-size:14.5px;
-    padding:14px 16px;
-    border:1px solid var(--line);
-    background:#fff;
-    border-radius:2px;
-    color:var(--ink);
-    transition:border-color .15s, box-shadow .15s;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus{
-    outline:none;border-color:var(--accent);
-    box-shadow:0 0 0 3px rgba(220,80,40,.1);
-  }
-  .field textarea{resize:vertical;min-height:130px;font-family:inherit}
-  .form .submit{
-    padding:18px 28px;background:var(--ink);color:#fff;
-    font-weight:700;font-size:15px;letter-spacing:.05em;
-    border-radius:2px;transition:all .2s;
-    display:inline-flex;align-items:center;justify-content:center;gap:12px;
-  }
-  .form .submit:hover{background:var(--accent)}
-  @media (max-width:900px){
-    .form-grid{grid-template-columns:1fr;gap:40px}
-    .form{padding:28px}
-    .form-row{grid-template-columns:1fr}
-  }
+    /* 店舗情報 */
+    .store-box {
+      background: var(--gray-bg);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .store-box-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+    dl.store-dl {}
+    dl.store-dl div {
+      display: flex;
+      gap: 8px;
+      font-size: 11.5px;
+      margin-bottom: 7px;
+      line-height: 1.6;
+    }
+    dl.store-dl dt { font-weight: 700; white-space: nowrap; min-width: 48px; }
+    dl.store-dl dd { color: #444; }
+    .map-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--black);
+      color: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 14px;
+      transition: background .2s;
+    }
+    .map-link:hover { background: #333; }
+    .map-preview {
+      margin-top: 10px;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 90px;
+      background: #ddd;
+      background-image: url('https://images.pexels.com/photos/1426516/pexels-photo-1426516.jpeg?auto=compress&cs=tinysrgb&w=400');
+      background-size: cover;
+      background-position: center;
+    }
 
-  /* =========== FOOTER =========== */
-  .footer{background:var(--ink);color:rgba(255,255,255,.7);padding:60px 0 100px}
-  .footer-inner{
-    display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;
-    padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);
-  }
-  .footer h4{
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:13px;letter-spacing:.2em;font-weight:600;
-    color:#fff;margin-bottom:16px;text-transform:uppercase;
-  }
-  .footer .logo{color:#fff;margin-bottom:20px}
-  .footer-info{font-size:13px;line-height:1.9}
-  .footer-tel{
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:26px;font-weight:700;color:#fff;letter-spacing:.03em;
-    margin-bottom:8px;display:block;
-  }
-  .footer-bottom{
-    padding-top:24px;font-size:11.5px;
-    display:flex;justify-content:space-between;
-    color:rgba(255,255,255,.4);letter-spacing:.05em;
-  }
-  @media (max-width:720px){
-    .footer-inner{grid-template-columns:1fr;gap:32px}
-    .footer-bottom{flex-direction:column;gap:6px}
-  }
+    /* ========== PRICE SECTION ========== */
+    .price-section {
+      background: var(--gray-bg);
+      padding: 72px 40px;
+    }
+    .price-inner { max-width: 900px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 11px;
+      color: var(--red);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      font-size: 13px;
+      color: var(--gray);
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .price-table thead tr { background: var(--black); }
+    .price-table thead th {
+      padding: 12px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      text-align: left;
+    }
+    .price-table tbody tr { border-bottom: 1px solid var(--border); }
+    .price-table tbody tr:last-child { border-bottom: none; }
+    .price-table tbody tr:nth-child(even) { background: #fafafa; }
+    .price-table tbody td {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #444;
+      vertical-align: middle;
+    }
+    .price-table tbody td:nth-child(3) {
+      font-weight: 900;
+      color: var(--red);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .price-badge {
+      display: inline-block;
+      background: #f0f0f0;
+      color: var(--gray);
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .price-note {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.9;
+    }
 
-  /* =========== MOBILE FIXED CALL =========== */
-  .m-call{
-    display:none;
-    position:fixed;left:0;right:0;bottom:0;z-index:99;
-    background:var(--accent);color:#fff;
-    padding:14px 16px;
-    text-align:center;
-    font-family:"Barlow Condensed",sans-serif;
-    font-weight:700;font-size:20px;letter-spacing:.04em;
-    box-shadow:0 -4px 20px rgba(0,0,0,.2);
-  }
-  .m-call .small{
-    display:block;font-family:"Noto Sans JP",sans-serif;
-    font-size:10px;font-weight:500;letter-spacing:.15em;
-    opacity:.85;margin-bottom:2px;
-  }
-  @media (max-width:820px){
-    .m-call{display:block}
-  }
+    /* ========== CTA BAND ========== */
+    .cta-band {
+      background: var(--black);
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-size: clamp(20px, 2.5vw, 30px);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .cta-band p { font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 32px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-tel-big {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: #fff;
+      padding: 18px 32px;
+      border-radius: 6px;
+      font-weight: 900;
+      font-size: 20px;
+      transition: background .2s;
+    }
+    .btn-tel-big:hover { background: var(--red2); }
+    .btn-outline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(255,255,255,.3);
+      color: rgba(255,255,255,.75);
+      padding: 18px 28px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all .2s;
+    }
+    .btn-outline:hover { border-color: #fff; color: #fff; }
+    .cta-note { margin-top: 20px; font-size: 11px; color: rgba(255,255,255,.3); }
 
-  /* =========== ANIM =========== */
-  .reveal{
-    opacity:0;transform:translateY(24px);
-    transition:opacity .9s ease, transform .9s ease;
-  }
-  .reveal.in{opacity:1;transform:translateY(0)}
-  .reveal-d1{transition-delay:.08s}
-  .reveal-d2{transition-delay:.16s}
-  .reveal-d3{transition-delay:.24s}
-  .reveal-d4{transition-delay:.32s}
-  .reveal-d5{transition-delay:.40s}
-  .reveal-d6{transition-delay:.48s}
-  @media (prefers-reduced-motion:reduce){
-    .reveal{opacity:1;transform:none;transition:none}
-  }
+    /* ========== CONTACT ========== */
+    .contact-section { padding: 80px 40px; }
+    .contact-inner { max-width: 720px; margin: 0 auto; }
+    .form-card {
+      background: var(--gray-bg);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .req {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: 9px;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #d0d0d0;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #fff;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--black); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--red);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background .2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: var(--red2); }
 
-  /* Floor labels */
-  .floor-label{
-    position:absolute;bottom:24px;right:32px;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:10px;letter-spacing:.3em;
-    color:rgba(255,255,255,.35);
-    writing-mode:vertical-rl;text-orientation:mixed;
-  }
-  @media (max-width:820px){.floor-label{display:none}}
-</style>
+    /* ========== FOOTER ========== */
+    footer {
+      background: #0f0f0f;
+      padding: 32px 40px;
+    }
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 900;
+      font-size: 22px;
+      color: rgba(255,255,255,.3);
+      letter-spacing: .1em;
+    }
+    .footer-info {
+      font-size: 11px;
+      color: rgba(255,255,255,.2);
+      line-height: 1.9;
+      text-align: right;
+    }
+
+    /* ========== FLOAT TEL ========== */
+    .float-tel {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 300;
+      background: var(--red);
+      padding: 14px;
+      text-align: center;
+    }
+    .float-tel a {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    /* ========== FADE IN ========== */
+    .fade {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade.in { opacity: 1; transform: none; }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1100px) {
+      .h-nav { display: none; }
+      .rv-cards .rv-card:nth-child(n+3) { display: none; }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .svc-inner { grid-template-columns: 1fr; }
+      .works-inner { grid-template-columns: 180px 1fr; }
+      .store-box { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero { height: 420px; }
+      .hero-inner { align-items: center; text-align: center; padding: 0 24px; }
+      .hero-overlay { background: rgba(0,0,0,.62); }
+      .works-inner { grid-template-columns: 1fr; }
+      .ba-grid { grid-template-columns: repeat(2, 1fr); }
+      .ba-grid .ba-pair:nth-child(3) { display: none; }
+      .rv-cards .rv-card:nth-child(n+2) { display: none; }
+      .price-table thead th:nth-child(2),
+      .price-table tbody td:nth-child(2) { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-section { padding: 60px 20px; }
+      .form-card { padding: 24px; }
+      .svc-section { padding: 40px 0; }
+      .svc-inner { padding: 0 20px; }
+      .works-inner { padding: 0 20px; }
+      .price-section { padding: 60px 24px; }
+    }
+    @media (max-width: 540px) {
+      .float-tel { display: block; }
+      body { padding-bottom: 60px; }
+      .h-inner { padding: 0 16px; gap: 12px; }
+      .h-logo-main { font-size: 22px; }
+      .h-tel-block { display: none; }
+      .hero-svcs-inner { flex-wrap: wrap; }
+      .h-svc { flex: 0 0 50%; }
+      .h-svc:nth-child(2) { border-right: none; }
+      .h-svc:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.12); }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ========= HEADER ========= -->
-<header class="header">
-  <div class="container header-inner">
-    <a href="#top" class="logo">
-      <span class="logo-mark">C</span>
-      <span>C · P · M</span>
-    </a>
-    <nav class="header-nav">
+<!-- FLOAT TEL -->
+<div class="float-tel">
+  <a href="tel:0925160603">📞 092-516-0603</a>
+</div>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="h-inner">
+    <div class="h-logo">
+      <div class="h-logo-main">C · P · M</div>
+      <div class="h-logo-sub">板金塗装・車検・保険代理店</div>
+    </div>
+
+    <nav class="h-nav">
       <a href="#services">サービス</a>
-      <a href="#reasons">選ばれる理由</a>
-      <a href="#price">料金</a>
-      <a href="#cases">施工事例</a>
+      <a href="#works">施工事例</a>
+      <a href="#price">料金目安</a>
       <a href="#access">アクセス</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="usedcar/">中古車販売</a>
     </nav>
-    <a href="tel:0925160603" class="header-tel">
-      <div>
-        <div class="lbl">受付 8:00 – 17:00</div>
-        <div class="num">092-516-0603</div>
+
+    <div class="h-contact">
+      <div class="h-tel-block">
+        <div class="h-tel-label">お気軽にお問い合わせください</div>
+        <a href="tel:0925160603" class="h-tel-num">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--red)"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          092-516-0603
+        </a>
+        <div class="h-tel-hours">受付 8:00〜17:00（土日祝は要相談）</div>
       </div>
-    </a>
+      <a href="https://line.me/R/ti/p/@073wyzub" target="_blank" class="h-line-btn">
+        <div class="h-line-top">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで相談する
+        </div>
+        <div class="h-line-sub">24時間受付中</div>
+      </a>
+    </div>
   </div>
 </header>
 
-<!-- ========= HERO ========= -->
-<section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="container hero-inner">
-    <div>
-      <div class="hero-eyebrow reveal">FUKUOKA / SHIME — AUTO BODY &amp; PAINT SHOP</div>
-      <h1 class="reveal reveal-d1">
-        キズ・ヘコミ<br/>
-        <span class="em">元通り</span>に直します。
-      </h1>
-      <p class="hero-sub reveal reveal-d2">
-        他店より安く、丁寧に。外車・輸入車もお任せください。<br/>
-        福岡県志免町の板金塗装店「C・P・M」が、20年以上の技術で対応します。
-      </p>
-      <div class="hero-cta reveal reveal-d3">
-        <a href="#form" class="btn btn-primary">無料で見積もりする <span class="arrow">→</span></a>
-        <a href="tel:0925160603" class="btn btn-ghost">電話で相談する</a>
-      </div>
-    </div>
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <h1>クルマのこと、<br>すべてお任せください。</h1>
+    <p class="hero-sub">福岡県・志免町／糟屋郡で<em>20年以上</em>の実績</p>
   </div>
-  <div class="hero-stats container reveal reveal-d4" style="max-width:1240px;padding:0 32px;">
-    <div class="stat">
-      <div class="stat-num"><span class="accent">★</span>4.8</div>
-      <div class="stat-lbl">Google評価</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">22<span class="small">件</span></div>
-      <div class="stat-lbl">クチコミ件数</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num"><span class="accent">¥</span>0</div>
-      <div class="stat-lbl">見積もり料金</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">即日<span class="small">対応</span></div>
-      <div class="stat-lbl">軽微な修理</div>
-    </div>
-  </div>
-  <span class="floor-label">EST. 20+ YEARS</span>
-</section>
-
-<!-- ========= SERVICES ========= -->
-<section class="block services" id="services">
-  <div class="container">
-    <div class="sect-head">
-      <div class="reveal">
-        <div class="sect-eyebrow"><span class="num">01</span> / Services</div>
-        <h2 class="sect-title">車のこと、<br/><span class="em">まるごと</span>お任せ<br/>ください。</h2>
-      </div>
-      <p class="sect-lead reveal reveal-d1">
-        小さなキズの修理から、車検・整備、保険手続き、中古車の販売まで。<br/>
-        車にまつわるあらゆるご相談に、一つの窓口で対応します。
-      </p>
-    </div>
-
-    <div class="services-grid">
-      <div class="svc reveal">
-        <div class="svc-no">01</div>
-        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 30v6h8M42 30v6h-8M10 30h28v-8l-4-10H14l-4 10z"/><circle cx="14" cy="34" r="3"/><circle cx="34" cy="34" r="3"/>
+  <div class="hero-svcs">
+    <div class="hero-svcs-inner">
+      <div class="h-svc">
+        <svg class="h-svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 32h32M12 32l4-12h16l4 12M12 32v8h6v-3h12v3h6v-8"/>
+          <circle cx="16" cy="36" r="2"/><circle cx="32" cy="36" r="2"/>
+          <path d="M28 14c0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.5.8 2.8 2 3.5V22h4v-4.5c1.2-.7 2-2 2-3.5z"/>
         </svg>
-        <div class="svc-name">板金・塗装</div>
-        <p class="svc-desc">キズ・ヘコミの部分修理から、全塗装・カスタムペイントまで幅広く対応。</p>
+        <div class="h-svc-name">板金・塗装</div>
       </div>
-      <div class="svc reveal reveal-d1">
-        <div class="svc-no">02</div>
-        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="24" cy="24" r="14"/><path d="M24 12v6M24 30v6M12 24h6M30 24h6"/><circle cx="24" cy="24" r="2" fill="currentColor"/>
+      <div class="h-svc">
+        <svg class="h-svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M30 10l8 8-4 4-8-8zM6 38l16-16M18 14l10 10"/>
+          <circle cx="10" cy="38" r="4"/>
         </svg>
-        <div class="svc-name">車検・整備</div>
-        <p class="svc-desc">法定点検・定期整備・各種修理に対応。安心して長く乗れる車を維持します。</p>
+        <div class="h-svc-name">車検・整備</div>
       </div>
-      <div class="svc reveal reveal-d2">
-        <div class="svc-no">03</div>
-        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="6"/><path d="M24 10v4M24 34v4M10 24h4M34 24h4"/>
+      <div class="h-svc">
+        <svg class="h-svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="16"/>
+          <circle cx="24" cy="24" r="7"/>
+          <path d="M24 8v4M24 36v4M8 24h4M36 24h4"/>
         </svg>
-        <div class="svc-name">タイヤ・油脂交換</div>
-        <p class="svc-desc">エンジンオイル・タイヤ・バッテリーなど消耗品の交換をスピーディーに。</p>
+        <div class="h-svc-name">タイヤ・油脂交換</div>
       </div>
-      <div class="svc reveal reveal-d3">
-        <div class="svc-no">04</div>
-        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M24 6l14 6v10c0 9-6 16-14 20-8-4-14-11-14-20V12z"/><path d="M18 24l4 4 8-8"/>
+      <div class="h-svc">
+        <svg class="h-svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6l14 5v10c0 9-6 16-14 19C10 37 4 30 4 21V11z"/>
+          <path d="M16 24l5 5 9-10"/>
         </svg>
-        <div class="svc-name">AIG保険 代理店</div>
-        <p class="svc-desc">AIG損害保険の正規代理店として、保険修理の手続きをワンストップで代行。</p>
+        <div class="h-svc-name">AIG保険代理店</div>
       </div>
-      <div class="svc reveal reveal-d4">
-        <div class="svc-no">05</div>
-        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 28h36M10 28l3-10h22l3 10M10 28v8h6v-3h16v3h6v-8"/><circle cx="14" cy="32" r="2"/><circle cx="34" cy="32" r="2"/><path d="M30 12l4 4 8-8"/>
+      <div class="h-svc">
+        <svg class="h-svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 28h36M10 28l3-10h22l3 10M10 28v8h6v-3h16v3h6v-8"/>
+          <circle cx="14" cy="32" r="2"/><circle cx="34" cy="32" r="2"/>
+          <path d="M30 12l4 4 8-8"/>
         </svg>
-        <div class="svc-name">中古車販売</div>
-        <p class="svc-desc">厳選した良質な中古車をお手頃価格で販売。仕入れのご相談もお気軽に。</p>
-        <a href="usedcar/" style="display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);font-weight:700;letter-spacing:.02em">詳しく見る →</a>
+        <div class="h-svc-name">中古車販売</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========= REASONS ========= -->
-<section class="block reasons" id="reasons">
-  <div class="container">
-    <div class="sect-head">
-      <div class="reveal">
-        <div class="sect-eyebrow"><span class="num">02</span> / Why C·P·M</div>
-        <h2 class="sect-title">C・P・Mが<br/><span class="em">選ばれる</span>6つの理由</h2>
+<!-- ========== REVIEWS BAR ========== -->
+<div class="rv-bar">
+  <div class="rv-bar-inner">
+    <div class="rv-score-block">
+      <div class="rv-label">Googleマップ評価</div>
+      <div class="rv-stars-row">
+        <div class="rv-star">★</div>
+        <div class="rv-num">4.8</div>
       </div>
-      <p class="sect-lead reveal reveal-d1">
-        ディーラーや量販店とは違う、町の修理屋だからこそできる対応があります。<br/>
-        20年以上、糟屋郡のお客様に支持されてきた理由をご紹介します。
-      </p>
+      <div class="rv-count">クチコミ22件</div>
     </div>
-
-    <div class="reasons-grid">
-      <article class="reason reveal">
-        <span class="reason-no">01</span>
-        <h3>他店より安く仕上げる</h3>
-        <p>ディーラーや他の修理屋で「高い」と言われた案件も、板金技術でリーズナブルに対応。パーツ交換不要の修理で費用を抑えます。</p>
-      </article>
-      <article class="reason reveal reveal-d1">
-        <span class="reason-no">02</span>
-        <h3>外車・輸入車も対応</h3>
-        <p>ワーゲン・BMW・メルセデスなど輸入車の実績多数。外車専門店と変わらない品質を、リーズナブルな価格で提供します。</p>
-      </article>
-      <article class="reason reveal reveal-d2">
-        <span class="reason-no">03</span>
-        <h3>無料見積もり・相談歓迎</h3>
-        <p>「これって直せる？」「いくらかかる？」だけでも構いません。まず見てから判断するので、気軽にご相談ください。</p>
-      </article>
-      <article class="reason reveal reveal-d3">
-        <span class="reason-no">04</span>
-        <h3>AIG保険代理店として手続き代行</h3>
-        <p>AIG損害保険の正規代理店。事故後の保険手続きをここで一括対応できるので、保険会社への面倒なやりとりが不要です。</p>
-      </article>
-      <article class="reason reveal reveal-d4">
-        <span class="reason-no">05</span>
-        <h3>スピード対応</h3>
-        <p>軽微な修理は即日対応も可能。お急ぎの場合はお電話でご相談ください。スケジュールを確認の上、最短日程をご案内します。</p>
-      </article>
-      <article class="reason reveal reveal-d5">
-        <span class="reason-no">06</span>
-        <h3>志免町・糟屋郡エリア密着</h3>
-        <p>志免町・粕屋町・宇美町・新宮町・福岡市東区など糟屋郡全域に対応。地元の信頼あるお店として20年以上の実績。</p>
-      </article>
+    <div class="rv-cards">
+      <div class="rv-card fade">
+        <div class="rv-card-stars">★★★★★</div>
+        <div class="rv-card-text">凄く丁寧な仕事で、金額も他店よりお安いと思います。また何かあればお願いしたいです。</div>
+      </div>
+      <div class="rv-card fade">
+        <div class="rv-card-stars">★★★★★</div>
+        <div class="rv-card-text">外車専門店でワーゲンを2〜30万と言われましたが、こちらでは5千円で解決。信頼できるショップです！</div>
+      </div>
+      <div class="rv-card fade">
+        <div class="rv-card-stars">★★★★★</div>
+        <div class="rv-card-text">対応も価格も良心的で、ガリキズをすごく綺麗に仕上げてくれました。何かあったらまたお願いしたいです。</div>
+      </div>
+      <div class="rv-card fade">
+        <div class="rv-card-stars">★★★★★</div>
+        <div class="rv-card-text">板金の仕上がりが本当に綺麗で驚きました。説明もわかりやすく、信頼できるお店です。</div>
+      </div>
     </div>
+    <a href="https://maps.google.com/?q=C.P.M+志免町" target="_blank" class="rv-link">
+      Googleマップで見る
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+    </a>
   </div>
-</section>
+</div>
 
-<!-- ========= PRICE ========= -->
-<section class="block" id="price" style="background:var(--paper)">
-  <div class="container">
-    <div class="sect-head">
-      <div class="reveal">
-        <div class="sect-eyebrow"><span class="num">03</span> / Pricing</div>
-        <h2 class="sect-title">料金の<span class="em">目安</span></h2>
-      </div>
-      <p class="sect-lead reveal reveal-d1">
-        修理内容・損傷の程度によって金額は変わります。<br/>
-        まずは無料見積もりで、正確な料金をご確認ください。
-      </p>
-    </div>
-
-    <div class="price-wrap reveal reveal-d2">
-      <table class="price-table">
-        <thead>
-          <tr>
-            <th style="width:24%">修理の種類</th>
-            <th style="width:36%">具体例</th>
-            <th style="width:18%">目安料金</th>
-            <th>備考</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="price-kind">小キズ・小ヘコミ</td>
-            <td class="price-note-cell" style="color:var(--ink);font-size:14px">ドアのすり傷・駐車場での当て逃げ等</td>
-            <td class="price-amt">¥8,000〜</td>
-            <td><span class="price-pill pill-day">即日対応可</span></td>
-          </tr>
-          <tr>
-            <td class="price-kind">中程度の損傷</td>
-            <td class="price-note-cell" style="color:var(--ink);font-size:14px">バンパーのへこみ・フェンダーのキズ等</td>
-            <td class="price-amt">¥25,000〜</td>
-            <td><span class="price-pill pill-call">よくあるご相談</span></td>
-          </tr>
-          <tr>
-            <td class="price-kind">大きな損傷・事故</td>
-            <td class="price-note-cell" style="color:var(--ink);font-size:14px">側面全体・複数パネルの損傷・事故修理等</td>
-            <td class="price-amt">¥60,000〜</td>
-            <td><span class="price-pill pill-insure">保険対応可</span></td>
-          </tr>
-          <tr>
-            <td class="price-kind">全塗装・色変え</td>
-            <td class="price-note-cell" style="color:var(--ink);font-size:14px">経年劣化のリフレッシュ・カスタムペイント等</td>
-            <td class="price-amt">¥150,000〜</td>
-            <td><span class="price-pill pill-call">要相談</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="price-foot">※ 見積もりは無料です。実際の金額は現車確認後にご案内いたします。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ========= CASES ========= -->
-<section class="block cases" id="cases">
-  <div class="container">
-    <div class="sect-head">
-      <div class="reveal">
-        <div class="sect-eyebrow"><span class="num">04</span> / Case Studies</div>
-        <h2 class="sect-title">最近の<span class="em">施工事例</span></h2>
-      </div>
-      <p class="sect-lead reveal reveal-d1">
-        実際にお預かりした車の修理事例をご紹介します。<br/>
-        修理内容と料金の参考にしてください。
-      </p>
-    </div>
-
-    <div class="cases-grid">
-      <article class="case reveal">
-        <div class="case-img-wrap">
-          <div class="case-img before" style="background-image:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),url('https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">BEFORE</span>
-          </div>
-          <div class="case-img after" style="background-image:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.05)),url('https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">AFTER</span>
-          </div>
-          <div class="case-divide"></div>
+<!-- ========== SERVICES ========== -->
+<section class="svc-section" id="services">
+  <div class="svc-inner">
+    <div class="svc-main">
+      <div class="sect-head fade">サービス一覧</div>
+      <div class="svc-grid">
+        <div class="svc-card fade">
+          <img src="https://images.pexels.com/photos/3807329/pexels-photo-3807329.jpeg?auto=compress&cs=tinysrgb&w=600" alt="板金・塗装" loading="lazy">
+          <div class="svc-card-name">板金・塗装</div>
         </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <h3 class="case-name">運転席ドア 板金塗装</h3>
-            <div class="case-price">¥38,000</div>
-          </div>
-          <p class="case-desc">駐車場での接触によるへこみと塗装剥がれを、板金 + 再塗装で元通りに。</p>
+        <div class="svc-card fade">
+          <img src="https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=600" alt="車検・整備" loading="lazy">
+          <div class="svc-card-name">車検・整備</div>
         </div>
-      </article>
-
-      <article class="case reveal reveal-d1">
-        <div class="case-img-wrap">
-          <div class="case-img before" style="background-image:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),url('https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">BEFORE</span>
-          </div>
-          <div class="case-img after" style="background-image:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.05)),url('https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">AFTER</span>
-          </div>
-          <div class="case-divide"></div>
+        <div class="svc-card fade">
+          <img src="https://images.pexels.com/photos/4399957/pexels-photo-4399957.jpeg?auto=compress&cs=tinysrgb&w=600" alt="タイヤ・油脂交換" loading="lazy">
+          <div class="svc-card-name">タイヤ・油脂交換</div>
         </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <h3 class="case-name">バンパー修理・塗装</h3>
-            <div class="case-price">¥28,000</div>
-          </div>
-          <p class="case-desc">追突によるバンパーの割れとへこみを修復。新品交換より低コストで対応。</p>
+        <div class="svc-card fade">
+          <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=600" alt="AIG保険代理店" loading="lazy">
+          <div class="svc-card-name">AIG保険代理店</div>
         </div>
-      </article>
-
-      <article class="case reveal reveal-d2">
-        <div class="case-img-wrap">
-          <div class="case-img before" style="background-image:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),url('https://images.pexels.com/photos/3807329/pexels-photo-3807329.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">BEFORE</span>
-          </div>
-          <div class="case-img after" style="background-image:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.05)),url('https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">AFTER</span>
-          </div>
-          <div class="case-divide"></div>
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <h3 class="case-name">輸入車 サイドパネル修理</h3>
-            <div class="case-price">¥5,000</div>
-          </div>
-          <p class="case-desc">他店で2〜30万と見積もられた電装系トラブルを診断・修理。電話1本で解決。</p>
-        </div>
-      </article>
-
-      <article class="case reveal reveal-d3">
-        <div class="case-img-wrap">
-          <div class="case-img before" style="background-image:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),url('https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">BEFORE</span>
-          </div>
-          <div class="case-img after" style="background-image:linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,.05)),url('https://images.pexels.com/photos/175330/pexels-photo-175330.jpeg?auto=compress&cs=tinysrgb&w=800')">
-            <span class="tag">AFTER</span>
-          </div>
-          <div class="case-divide"></div>
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <h3 class="case-name">ガリキズ 磨き・塗装</h3>
-            <div class="case-price">¥12,000</div>
-          </div>
-          <p class="case-desc">縁石でのガリキズを、磨き + 塗装で修復。施工後はキズの跡が分からない仕上がりに。</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========= REVIEWS ========= -->
-<section class="block reviews">
-  <div class="container">
-    <div class="sect-head">
-      <div class="reveal">
-        <div class="sect-eyebrow"><span class="num">05</span> / Reviews</div>
-        <h2 class="sect-title">お客様の<span class="em">声</span></h2>
-      </div>
-      <p class="sect-lead reveal reveal-d1">
-        実際にご利用いただいたお客様からいただいたクチコミです。<br/>
-        Google マップにもさらに多くのレビューが掲載されています。
-      </p>
-    </div>
-
-    <div class="reviews-rating reveal">
-      <div>
-        <div class="rating-score">4.8 <span class="out">/ 5.0</span></div>
-        <div class="rating-stars" aria-label="星4.8">★★★★★</div>
-      </div>
-      <div class="rating-meta">
-        Googleマップ クチコミ <strong>22件</strong> の平均評価<br/>
-        ※ 2026年5月時点
-      </div>
-      <div class="rating-google">
-        <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16 18.9 13 24 13c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.1 4 9.3 8.5 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.1c-2 1.4-4.5 2.3-7.2 2.3-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.2 39.5 16 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.7l6.2 5.1c-.4.4 6.6-4.8 6.6-14.8 0-1.3-.1-2.4-.4-3.5z"/></svg>
-        Google Reviews
       </div>
     </div>
-
-    <div class="reviews-grid">
-      <article class="review reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">凄く丁寧な仕事で、金額も他店よりお安いと思います。また何かあればお願いしたいです。</p>
-        <div class="review-author">
-          <div class="review-avatar">T</div>
-          <div>
-            <div style="color:var(--ink);font-weight:700">Tさん</div>
-            <div>板金塗装をご利用</div>
-          </div>
-        </div>
-      </article>
-      <article class="review reveal reveal-d1">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">外車専門店でワーゲンを2〜30万と言われましたが、こちらでは5千円で解決。車好きの方が多そうで、信頼できるショップです！</p>
-        <div class="review-author">
-          <div class="review-avatar">K</div>
-          <div>
-            <div style="color:var(--ink);font-weight:700">Kさん</div>
-            <div>輸入車修理をご利用</div>
-          </div>
-        </div>
-      </article>
-      <article class="review reveal reveal-d2">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">対応も価格も良心的で、ガリキズをすごく綺麗に仕上げてくれました。何かあったらまたお願いしたいです。</p>
-        <div class="review-author">
-          <div class="review-avatar">M</div>
-          <div>
-            <div style="color:var(--ink);font-weight:700">Mさん</div>
-            <div>ガリキズ修理をご利用</div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========= CTA ========= -->
-<section class="cta">
-  <div class="cta-bg" aria-hidden="true"></div>
-  <div class="container cta-inner">
-    <div class="cta-eyebrow reveal">— Contact —</div>
-    <h2 class="reveal reveal-d1">まずは、気軽に<br/>ご相談ください。</h2>
-    <p class="cta-sub reveal reveal-d2">
-      お電話か、下のフォームから。<br/>
-      「直せる？」「いくら？」だけでも構いません。
-    </p>
-    <div class="cta-buttons reveal reveal-d3">
-      <a href="tel:0925160603" class="btn-tel-big">
-        <span class="hour">RECEPTION 8:00 – 17:00</span>
-        <span class="num">📞 092-516-0603</span>
+    <aside class="sidebar fade">
+      <div class="sb-title">まずはお気軽にご相談ください</div>
+      <div class="sb-tel-label">お電話でのお問い合わせ</div>
+      <a href="tel:0925160603" class="sb-tel">
+        <svg class="sb-tel-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        092-516-0603
       </a>
-      <a href="#form" class="btn btn-ghost" style="border-color:rgba(255,255,255,.3)">
-        フォームで問い合わせる <span class="arrow">→</span>
+      <div class="sb-hours">受付 8:00〜17:00<br>（土日祝は要相談）</div>
+      <a href="https://line.me/R/ti/p/@073wyzub" target="_blank" class="sb-line">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで相談する
       </a>
-    </div>
+      <div class="sb-line-sub">24時間受付中</div>
+      <a href="#contact" class="sb-free" style="display:block;margin-top:12px;">無料見積もりを依頼する</a>
+    </aside>
   </div>
 </section>
 
-<!-- ========= ACCESS ========= -->
-<section class="block access" id="access">
-  <div class="container">
-    <div class="sect-head">
-      <div class="reveal">
-        <div class="sect-eyebrow"><span class="num">06</span> / Access</div>
-        <h2 class="sect-title"><span class="em">アクセス</span>・営業時間。</h2>
-      </div>
+<!-- ========== WORKS ========== -->
+<section class="works-section" id="works">
+  <div class="works-inner">
+    <div class="works-head fade">
+      <div class="works-title">施工事例</div>
+      <div class="works-sub">BEFORE / AFTER</div>
+      <a href="#contact" class="works-btn">一覧を見る</a>
     </div>
-
-    <div class="access-grid">
-      <div class="access-info reveal">
-        <div class="access-name">C・P・M</div>
-        <div class="access-tagline">FUKUOKA · SHIME · AUTO BODY</div>
-
-        <table class="access-table">
-          <tbody>
-            <tr>
-              <th>住所</th>
-              <td>福岡県糟屋郡志免町南里２丁目１１−２１</td>
-            </tr>
-            <tr>
-              <th>電話</th>
-              <td><span class="em">092-516-0603</span></td>
-            </tr>
-            <tr>
-              <th>受付時間</th>
-              <td>8:00 〜 17:00<br/><span style="color:var(--muted);font-size:13px">※ 土日祝は要相談</span></td>
-            </tr>
-            <tr>
-              <th>業務内容</th>
-              <td>板金塗装 / 車検・整備 / 中古車販売 / AIG損害保険 正規代理店</td>
-            </tr>
-            <tr>
-              <th>対応エリア</th>
-              <td style="font-size:13.5px;line-height:1.9">志免町 / 粕屋町 / 宇美町 / 篠栗町 / 新宮町 / 福岡市東区 / 博多区 ほか</td>
-            </tr>
-            <tr>
-              <th>取り扱い</th>
-              <td style="font-size:13.5px">国産車全般 / 外車・輸入車（VW・BMW・メルセデス 等）</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <a class="access-map reveal reveal-d1" href="https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%B3%9F%E5%B1%8B%E9%83%A1%E5%BF%97%E5%85%8D%E7%94%BA%E5%8D%97%E9%87%8C%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%91%E2%88%92%EF%BC%92%EF%BC%91" target="_blank" rel="noopener">
-        <div class="map-overlay">
-          <div class="ttl">SHOP LOCATION</div>
-          <div class="addr">福岡県糟屋郡志免町南里２丁目１１−２１</div>
-          <span class="map-link">Googleマップで開く →</span>
+    <div class="ba-grid fade">
+      <!-- PAIR 1 -->
+      <div class="ba-pair">
+        <div class="ba-imgs">
+          <div class="ba-img">
+            <img src="https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Before" loading="lazy">
+            <div class="ba-badge">Before</div>
+          </div>
+          <div class="ba-img">
+            <img src="https://images.pexels.com/photos/1035108/pexels-photo-1035108.jpeg?auto=compress&cs=tinysrgb&w=400" alt="After" loading="lazy">
+            <div class="ba-badge">After</div>
+          </div>
         </div>
+        <div class="ba-info">
+          <div class="ba-info-name">運転席ドア 板金塗装</div>
+          <div class="ba-info-price">¥38,000</div>
+        </div>
+      </div>
+      <!-- PAIR 2 -->
+      <div class="ba-pair">
+        <div class="ba-imgs">
+          <div class="ba-img">
+            <img src="https://images.pexels.com/photos/3807329/pexels-photo-3807329.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Before" loading="lazy">
+            <div class="ba-badge">Before</div>
+          </div>
+          <div class="ba-img">
+            <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=400" alt="After" loading="lazy">
+            <div class="ba-badge">After</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-info-name">バンパー修理・塗装</div>
+          <div class="ba-info-price">¥28,000</div>
+        </div>
+      </div>
+      <!-- PAIR 3 -->
+      <div class="ba-pair">
+        <div class="ba-imgs">
+          <div class="ba-img">
+            <img src="https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Before" loading="lazy">
+            <div class="ba-badge">Before</div>
+          </div>
+          <div class="ba-img">
+            <img src="https://images.pexels.com/photos/892522/pexels-photo-892522.jpeg?auto=compress&cs=tinysrgb&w=400" alt="After" loading="lazy">
+            <div class="ba-badge">After</div>
+          </div>
+        </div>
+        <div class="ba-info">
+          <div class="ba-info-name">ガリキズ 磨き・塗装</div>
+          <div class="ba-info-price">¥12,000</div>
+        </div>
+      </div>
+    </div>
+    <div class="store-box fade" id="access">
+      <div class="store-box-title">店舗情報</div>
+      <dl class="store-dl">
+        <div><dt>店名</dt><dd>C・P・M</dd></div>
+        <div><dt>住所</dt><dd>〒811-2207<br>福岡県糟屋郡志免町<br>南里２丁目１１−２１</dd></div>
+        <div><dt>電話</dt><dd>092-516-0603</dd></div>
+        <div><dt>営業</dt><dd>8:00〜17:00</dd></div>
+        <div><dt>定休日</dt><dd>土日祝（要相談）</dd></div>
+        <div><dt>エリア</dt><dd>志免町・粕屋町・宇美町・福岡市東区 ほか</dd></div>
+      </dl>
+      <a href="https://maps.google.com/?q=福岡県糟屋郡志免町南里2丁目11-21" target="_blank" class="map-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Googleマップで開く
       </a>
+      <div class="map-preview"></div>
     </div>
   </div>
 </section>
 
-<!-- ========= FORM ========= -->
-<section class="block form-sect" id="form">
-  <div class="container">
-    <div class="form-grid">
-      <div class="form-side reveal">
-        <div class="sect-eyebrow" style="margin-bottom:24px"><span class="num">07</span> / Inquiry</div>
-        <h2>無料見積もり・<br/>ご相談はこちら。</h2>
-        <p>下のフォームよりお気軽にお問い合わせください。お電話でも受け付けています。担当者より折り返しご連絡いたします。</p>
-        <ul class="check-list">
-          <li>見積もりは無料、相談だけでもOK</li>
-          <li>外車・輸入車の修理にも対応</li>
-          <li>AIG損害保険の保険手続きも代行</li>
-          <li>軽微な修理は即日対応可能</li>
-        </ul>
-      </div>
+<!-- ========== PRICE ========== -->
+<section class="price-section" id="price">
+  <div class="price-inner">
+    <div class="section-eyebrow">Price</div>
+    <h2 class="section-title fade">料金の目安</h2>
+    <p class="section-sub fade">「電話する前に料金が知りたい」という方のための目安料金表です。<br>現車確認後に正確なお見積もりをご案内します。</p>
+    <table class="price-table fade">
+      <thead>
+        <tr>
+          <th>修理の種類</th>
+          <th>具体例</th>
+          <th>目安料金</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>小キズ・小ヘコミ</strong></td>
+          <td>ドアのすり傷・当て逃げ等</td>
+          <td>¥8,000〜</td>
+          <td><span class="price-badge">即日対応可</span></td>
+        </tr>
+        <tr>
+          <td><strong>中程度の損傷</strong></td>
+          <td>バンパーのへこみ・フェンダーのキズ等</td>
+          <td>¥25,000〜</td>
+          <td><span class="price-badge">よくあるご相談</span></td>
+        </tr>
+        <tr>
+          <td><strong>大きな損傷・事故</strong></td>
+          <td>側面全体・複数パネルの損傷・事故修理等</td>
+          <td>¥60,000〜</td>
+          <td><span class="price-badge">保険対応可</span></td>
+        </tr>
+        <tr>
+          <td><strong>全塗装・色変え</strong></td>
+          <td>経年劣化のリフレッシュ・カスタムペイント等</td>
+          <td>¥150,000〜</td>
+          <td><span class="price-badge">要相談</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="price-note">※ 上記はあくまで目安です。実際の金額は現車確認後にお伝えします。<br>※ 見積もりは無料です。お気軽にご相談ください。</p>
+  </div>
+</section>
 
-      <form class="form reveal reveal-d1" id="contactForm" novalidate>
+<!-- ========== CTA ========== -->
+<div class="cta-band">
+  <h2>まずは、気軽にご相談ください。</h2>
+  <p>見積もり無料・相談無料。お電話またはLINEからどうぞ。</p>
+  <div class="cta-btns">
+    <a href="tel:0925160603" class="btn-tel-big">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.9a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      092-516-0603
+    </a>
+    <a href="#contact" class="btn-outline">メールで問い合わせる →</a>
+  </div>
+  <div class="cta-note">受付時間 8:00〜17:00（土日祝は要相談）</div>
+</div>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow">Contact</div>
+    <h2 class="section-title fade">メールで問い合わせる</h2>
+    <p class="section-sub fade">「直せる？」「いくらかかる？」だけでも大歓迎です。</p>
+    <div class="form-card fade">
+      <form id="contactForm" novalidate>
         <div class="form-row">
-          <div class="field">
+          <div class="form-group">
             <label>お名前 <span class="req">必須</span></label>
-            <input type="text" name="name" placeholder="例）山田 太郎" required />
+            <input type="text" placeholder="山田 太郎">
           </div>
-          <div class="field">
+          <div class="form-group">
             <label>電話番号 <span class="req">必須</span></label>
-            <input type="tel" name="tel" placeholder="例）090-1234-5678" required />
+            <input type="tel" placeholder="092-000-0000">
           </div>
         </div>
-        <div class="field">
+        <div class="form-group">
           <label>ご相談内容 <span class="req">必須</span></label>
-          <select name="topic" required>
-            <option value="">選択してください</option>
+          <select>
+            <option value="" disabled selected>選択してください</option>
             <option>キズ・ヘコミの修理</option>
             <option>事故修理</option>
             <option>全塗装・色変え</option>
             <option>外車・輸入車の修理</option>
+            <option>車検・整備</option>
             <option>中古車について</option>
             <option>その他</option>
           </select>
         </div>
-        <div class="field">
-          <label>詳細</label>
-          <textarea name="detail" placeholder="車種・年式・気になっている箇所などをご記入ください。&#10;（例）プリウス 2020年式、運転席側のドアに10cmほどのキズがあります。"></textarea>
+        <div class="form-group">
+          <label>詳細（任意）</label>
+          <textarea placeholder="車種、損傷の状況、ご希望などをご記入ください。"></textarea>
         </div>
-        <button type="submit" class="submit">送信する <span>→</span></button>
+        <button type="submit" class="form-submit">送信する →</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ========= FOOTER ========= -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div>
-        <div class="logo">
-          <span class="logo-mark">C</span>
-          <span>C · P · M</span>
-        </div>
-        <p class="footer-info">
-          福岡県志免町の板金塗装・自動車修理店。<br/>
-          キズ・ヘコミの修理から、車検整備・中古車販売・保険代理店まで、車のことを総合的にサポートします。
-        </p>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="tel:0925160603" class="footer-tel">092-516-0603</a>
-        <p class="footer-info">
-          受付時間 8:00〜17:00<br/>
-          土日祝は要相談
-        </p>
-      </div>
-      <div>
-        <h4>Address</h4>
-        <p class="footer-info">
-          〒811-2244<br/>
-          福岡県糟屋郡志免町南里<br/>
-          ２丁目１１−２１
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 C・P・M All rights reserved.</span>
-      <span>AIG損害保険 正規代理店</span>
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">C · P · M</div>
+    <div class="footer-info">
+      板金塗装・車検・整備・AIG損害保険 正規代理店<br>
+      〒811-2207 福岡県糟屋郡志免町南里２丁目１１−２１　Tel: 092-516-0603<br>
+      © C・P・M All rights reserved.
     </div>
   </div>
 </footer>
 
-<!-- ========= MOBILE FIXED CALL ========= -->
-<a class="m-call" href="tel:0925160603">
-  <span class="small">📞 タップでお電話 / 受付 8:00 - 17:00</span>
-  092-516-0603
-</a>
-
 <script>
-  // Scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // Fade-in
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
-  // Form
-  document.getElementById('contactForm').addEventListener('submit', (e) => {
+  // Form submit
+  document.getElementById('contactForm').addEventListener('submit', e => {
     e.preventDefault();
-    const f = e.target;
-    if (!f.name.value.trim() || !f.tel.value.trim() || !f.topic.value) {
+    const name  = e.target.querySelector('input[type=text]').value.trim();
+    const tel   = e.target.querySelector('input[type=tel]').value.trim();
+    const cat   = e.target.querySelector('select').value;
+    if (!name || !tel || !cat) {
       alert('お名前・電話番号・ご相談内容は必須項目です。');
       return;
     }
-    alert('送信ありがとうございます！\n担当者より折り返しご連絡いたします。');
-    f.reset();
+    alert('送信ありがとうございます！\n担当者より折り返しご連絡いたします。\n\n※ デモサイトのため実際には送信されません。');
+    e.target.reset();
   });
-
-  // Header shadow on scroll
-  const header = document.querySelector('.header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) header.style.boxShadow = '0 4px 20px rgba(0,0,0,.3)';
-    else header.style.boxShadow = '';
-  }, { passive: true });
 </script>
-
 </body>
 </html>
